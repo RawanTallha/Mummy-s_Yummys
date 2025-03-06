@@ -1,0 +1,97 @@
+/* NAVBAR */
+nav {
+    font-size: medium;
+    font-weight: 500;
+    overflow: hidden;
+    position: sticky;
+    text-align: center;
+    padding: 0.5%;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+nav a:hover {
+    color: rgb(112, 116, 130);
+}
+
+.custom-navbar img{
+    float: right;
+}
+
+.nav-split{
+    float: left;
+    margin-left: 1%;
+}
+
+.AmitSahoo45-button-2 {
+    font-size: 8px !important;
+    width: auto !important;
+    height: auto !important;
+    /* background-color: blue !important; */
+}
+
+.custom-button{
+    font-size: 15px;
+    background-color: #ffae4c;
+    color: aliceblue;
+    border-radius: 8px;
+    border-color: aliceblue;
+    padding: 8px 18px 8px 18px;
+}
+
+.custom-button:hover{
+    background-color: #e84927;
+}
+
+.custom-search{
+    font-size: 15px;
+    /* background-color: lightgray; */
+    color: grey;
+    border-radius: 8px;
+    border-color: aliceblue;
+    padding: 8px 18px 8px 18px;
+}
+
+.custom-search:hover{
+    background-color: rgb(206, 205, 205);
+}
+
+/* .custom-navbar input{
+    text-align: right;
+    height: 20px;
+    border-color: lightgray;
+} */
+
+/* Home section */
+
+.Home-page-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 50px 80px 80px;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.Home-page-pic {
+    width: 40vw;
+    max-width: 600px;
+    height: auto;
+}
+
+.about-home-page-summary p {
+    font-size: 1.4rem;
+}
+
