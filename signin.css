@@ -1,0 +1,44 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+p{
+padding-right: 5%;
+}
+.left-image{
+    background-color: thistle;
+    border-radius: 10px;
+}
+.right-signin{
+    margin: 10%;
+    direction: rtl;
+}
+hr{
+    border-color: rgba(0, 0, 0, 0.753);
+    border-width: 1.70px;
+    border-radius: 10px;
+    border-style: solid;
+}
+form{
+    margin-top: 10%;
+}
+.full-name{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+input[type="text"]{
+    width: 100%;
+    height: 35px;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+button[type="submit"]{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 1%;
+}
