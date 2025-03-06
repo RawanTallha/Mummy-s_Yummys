@@ -1,6 +1,6 @@
 body{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.25fr;
 }
 p{
 padding-right: 5%;
