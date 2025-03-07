@@ -1,16 +1,30 @@
 body{
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
+    grid-template-columns: 1fr 1.75fr;
+    margin: 0;
+    height: 100vh;
 }
+@media (max-width: 768px) {
+    body{
+        display: block;
+    }
+    .left-image{
+        display: none;
+    }
+    .right-signin{
+        margin: 10% !important;
+        padding: 10% !important;
+    }
+}  
 p{
 padding-right: 5%;
 }
 .left-image{
     background-color:  rgb(112, 116, 130);
-    border-radius: 10px;
 }
 .right-signin{
     margin: 10%;
+    padding-left: 30%;
     direction: rtl;
 }
 hr{
@@ -41,6 +55,7 @@ button[type="submit"]{
     text-align: center;
     margin-top: 20px;
     margin-right: 1%;
+    margin-bottom: 15%;
     border-radius: 8px;
 }
 .logo-grid{
