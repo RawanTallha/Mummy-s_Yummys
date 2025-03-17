@@ -9,7 +9,10 @@ body {
   }
   
   
+  
+  
   /* Navigation Bar Styles as in style.css*/
+  
   
   /* Main Container */
   .main-container {
@@ -22,10 +25,12 @@ body {
   }
   
   
+  
+  
   /* Header Section */
   .header-section {
    background: linear-gradient(to right, rgba(255, 255, 255, 0.8),
-   rgba(245, 245, 245, 0.8));
+     rgba(245, 245, 245, 0.8));
    padding: 20px;
    border-radius: 10px;
    text-align: center;
@@ -35,9 +40,13 @@ body {
   }
   
   
+  
+  
   .header-section:hover {
    transform: translateY(-3px);
   }
+  
+  
   
   
   .recipe-title {
@@ -49,10 +58,14 @@ body {
   }
   
   
+  
+  
   .subtitle {
    font-size: 1.2rem;
    color: #555;
   }
+  
+  
   
   
   /* Form Container */
@@ -68,6 +81,8 @@ body {
   }
   
   
+  
+  
   /* Section Titles */
   .section-title {
    font-size: 1.75rem;
@@ -80,10 +95,14 @@ body {
   }
   
   
+  
+  
   /* Recipe Details Section */
   .recipe-details .form-group {
    margin-bottom: 30px;
   }
+  
+  
   
   
   .recipe-details .form-label {
@@ -92,6 +111,8 @@ body {
    display: block;
    margin-bottom: 5px;
   }
+  
+  
   
   
   .recipe-details .form-control {
@@ -107,11 +128,15 @@ body {
   }
   
   
+  
+  
   .recipe-details .form-control:focus {
    border-color: #D4AC0D;
    outline: none;
    box-shadow: 0 0 7px rgba(212, 172, 13, 0.5);
   }
+  
+  
   
   
   /* Difficulty Level */
@@ -122,6 +147,8 @@ body {
    font-size: 0.9rem;
    margin-top: 5px;
   }
+  
+  
   
   
   /* Enhanced Range Input Styling */
@@ -137,6 +164,8 @@ body {
   }
   
   
+  
+  
   input[type="range"]::-webkit-slider-thumb {
    -webkit-appearance: none;
    appearance: none;
@@ -147,6 +176,8 @@ body {
    cursor: pointer;
    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
+  
+  
   
   
   input[type="range"]::-moz-range-thumb {
@@ -160,16 +191,22 @@ body {
   }
   
   
+  
+  
   /* Timer Container */
   .timer-container {
    display: flex;
    align-items: center;
-   justify-content: flex-start; /* Align items to the start */
-   }
+   justify-content: flex-start;
+   /* Align items to the start */
+  }
+  
+  
   
   
   .timer-container input[type="number"] {
-   width: 100%; /* Make the input fields take the full row width */
+   width: 100%;
+   /* Make the input fields take the full row width */
    padding: 8px;
    border: 1px solid #ccc;
    border-radius: 5px;
@@ -179,11 +216,15 @@ body {
   }
   
   
+  
+  
   .timer-container input[type="number"]:focus {
    border-color: #D4AC0D;
    outline: none;
    box-shadow: 0 0 7px rgba(212, 172, 13, 0.5);
   }
+  
+  
   
   
   /* Ingredients Section */
@@ -192,10 +233,14 @@ body {
   }
   
   
+  
+  
   .ingredients-section .ingredient-input-group {
    display: flex;
    margin-bottom: 10px;
   }
+  
+  
   
   
   .ingredients-section .ingredient-input-group input {
@@ -204,9 +249,13 @@ body {
   }
   
   
+  
+  
   .ingredients-section .added-ingredients {
    margin-top: 10px;
   }
+  
+  
   
   
   .ingredients-section .added-ingredient {
@@ -221,9 +270,13 @@ body {
   }
   
   
+  
+  
   .ingredients-section .added-ingredient:hover {
    background-color: #e0e0e0;
   }
+  
+  
   
   
   .ingredients-section .added-ingredient .remove-ingredient {
@@ -233,15 +286,21 @@ body {
   }
   
   
+  
+  
   .ingredients-section .added-ingredient .remove-ingredient:hover {
    color: #ff4444;
   }
+  
+  
   
   
   /* Kitchen Essentials Section */
   .kitchen-essentials {
    margin-top: 30px;
   }
+  
+  
   
   
   .kitchen-essentials .essentials-grid {
@@ -251,10 +310,14 @@ body {
   }
   
   
+  
+  
   .kitchen-essentials .essential-item {
    display: flex;
    align-items: center;
   }
+  
+  
   
   
   .kitchen-essentials .essential-item label {
@@ -264,9 +327,13 @@ body {
   }
   
   
+  
+  
   .kitchen-essentials .essential-item label:hover {
    color: #D4AC0D;
   }
+  
+  
   
   
   /* Tags Section */
@@ -275,10 +342,14 @@ body {
   }
   
   
+  
+  
   .tags-section .tags-container {
    display: flex;
    align-items: center;
   }
+  
+  
   
   
   .tags-section .tags-list {
@@ -287,6 +358,8 @@ body {
    gap: 5px;
    margin-top: 10px;
   }
+  
+  
   
   
   .tags-section .tag {
@@ -298,10 +371,14 @@ body {
   }
   
   
+  
+  
   .tags-section .tag:hover {
    transform: translateY(-2px);
    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   }
+  
+  
   
   
   /* Footer Section */
@@ -313,10 +390,14 @@ body {
   }
   
   
+  
+  
   .form-footer .status-select-wrapper {
    flex: 1;
    margin-right: 10px;
   }
+  
+  
   
   
   /* Attachment Styles */
@@ -324,6 +405,8 @@ body {
    text-align: center;
    margin-top: 10px;
   }
+  
+  
   
   
   .attachment-wrapper .form-label {
@@ -338,9 +421,13 @@ body {
   }
   
   
+  
+  
   .attachment-wrapper .form-label:hover {
    color: #D4AC0D;
   }
+  
+  
   
   
   .attachment-wrapper .form-label i {
@@ -348,10 +435,14 @@ body {
   }
   
   
+  
+  
   .form-footer .actions {
    display: flex;
    gap: 15px;
   }
+  
+  
   
   
   /* Buttons */
@@ -369,6 +460,8 @@ body {
   }
   
   
+  
+  
   .add-ingredient-button:hover,
   .add-tag-button:hover,
   .submit-button:hover,
@@ -379,14 +472,20 @@ body {
   }
   
   
+  
+  
   .draft-button {
    background-color: #6c757d;
   }
   
   
+  
+  
   .draft-button:hover {
    background-color: #5a6268;
   }
+  
+  
   
   
   /* Confirmation Message */
@@ -399,10 +498,14 @@ body {
   }
   
   
+  
+  
   .confirmation-message.draft {
    background-color: rgba(128, 128, 128, 0.3);
    color: #333;
   }
+  
+  
   
   
   .confirmation-message.public {
@@ -411,10 +514,14 @@ body {
   }
   
   
+  
+  
   .confirmation-message.private {
    background-color: rgba(0, 0, 255, 0.3);
    color: #fff;
   }
+  
+  
   
   
   /* General Input Styles */
@@ -429,6 +536,8 @@ body {
   }
   
   
+  
+  
   .form-select {
    border-radius: 5px;
    border: 1px solid #ccc;
@@ -440,6 +549,8 @@ body {
   }
   
   
+  
+  
   /* Add a touch of modern styling */
   .form-control:focus,
   .form-select:focus {
@@ -449,88 +560,133 @@ body {
   }
   
   
+  
+  
   /* Responsive adjustments */
   @media (max-width: 768px) {
    .main-container {
-   padding: 10px;
+    padding: 10px;
    }
+  
+  
   
   
    .header-section {
-   padding: 15px;
+    padding: 15px;
    }
+  
+  
   
   
    .recipe-title {
-   font-size: 2.5rem;
+    font-size: 2.5rem;
    }
+  
+  
   
   
    .form-container {
-   padding: 20px;
+    padding: 20px;
    }
+  
+  
   
   
    .form-footer {
-   flex-direction: column;
-   align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
    }
+  
+  
   
   
    .form-footer .status-select-wrapper {
-   margin-right: 0;
-   margin-bottom: 10px;
+    margin-right: 0;
+    margin-bottom: 10px;
    }
+  
+  
   
   
    .form-footer .actions {
-   flex-direction: column; /* Changed to column */
-   gap: 10px; /* Added gap between buttons */
-   width: 100%; /* Make buttons full width */
+    flex-direction: column;
+    /* Changed to column */
+    gap: 10px;
+    /* Added gap between buttons */
+    width: 100%;
+    /* Make buttons full width */
    }
+  
+  
   
   
    .form-footer .actions button {
-   width: 100%; /* Make buttons full width */
-   margin-left: 0;
-   margin-top: 5px;
-   box-sizing: border-box; /* Ensure padding doesn't affect width */
+    width: 100%;
+    /* Make buttons full width */
+    margin-left: 0;
+    margin-top: 5px;
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
    }
+  
+  
   
   
    /* Navigation bar adjustments for small screens */
    nav {
-   padding: 5%; /* Increase padding for better touch area */
+    padding: 5%;
+    /* Increase padding for better touch area */
    }
+  
+  
   
   
    nav a {
-   font-size: 18px; /* Slightly reduce font size */
-   padding: 10px 12px; /* Adjust padding */
+    font-size: 18px;
+    /* Slightly reduce font size */
+    padding: 10px 12px;
+    /* Adjust padding */
    }
+  
+  
   
   
    .nav-split {
-   float: none; /* Remove float */
-   margin-left: 0; /* Remove left margin */
-   text-align: center; /* Center the content */
-   margin-bottom: 10px; /* Add some spacing */
+    float: none;
+    /* Remove float */
+    margin-left: 0;
+    /* Remove left margin */
+    text-align: center;
+    /* Center the content */
+    margin-bottom: 10px;
+    /* Add some spacing */
    }
+  
+  
   
   
    .custom-button,
    .custom-search {
-   font-size: 14px; /* Reduce font size */
-   padding: 6px 14px; /* Adjust padding */
-   display: block; /* Make them stack on top of each other */
-   margin: 5px auto; /* Center them */
+    font-size: 14px;
+    /* Reduce font size */
+    padding: 6px 14px;
+    /* Adjust padding */
+    display: block;
+    /* Make them stack on top of each other */
+    margin: 5px auto;
+    /* Center them */
    }
   
   
+  
+  
    .custom-navbar img {
-   float: none; /* Remove float */
-   display: block; /* Make it a block element */
-   margin: 0 auto; /* Center the image */
+    float: none;
+    /* Remove float */
+    display: block;
+    /* Make it a block element */
+    margin: 0 auto;
+    /* Center the image */
    }
   }
   
