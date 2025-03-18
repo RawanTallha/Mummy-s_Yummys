@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>log in</title>
+    <title>sign in</title>
     <link rel="stylesheet" href="signin.css">
 </head>
 <body>
@@ -17,14 +17,15 @@
         <form action="signin">
 
             <div class="full-name">
-                <div><input type="text" for="first-name" placeholder="الاسم الاول"></div>
-                <div><input type="text" for="last-name" placeholder="الاسم الاخير"></div>
+                <div><input type="text" name="first-name" placeholder="الاسم الاول"  required></div>
+                <div><input type="text" name="last-name" placeholder="الاسم الاخير"></div>
             </div>
-
-            <div><input type="text" for="phone" placeholder="رقم الجوال"></div>
-            <div><input type="text" for="email" placeholder="البريد الالكتروني"></div>
-            <div><input type="text" for="password" placeholder="كلمة المرور"></div>
-            <div><input type="checkbox"> <label for="terms">اوافق على <a href="">الشروط و الاحكام</a></label></div>
+            
+            <div><input type="tel" name="phone" placeholder="رقم الجوال" required minlength="10" maxlength="10"></div>
+            <div><input type="email" name="email" placeholder="البريد الالكتروني"></div>
+            <div><input type="text" name="username" placeholder="اسم المستخدم" required></div>
+            <div><input type="password" name="password" placeholder="كلمة المرور" required></div>
+            <div><input type="checkbox" required> <label for="terms">اوافق على <a href="">الشروط و الاحكام</a></label></div>
             <div><button type="submit">انشئ حساب</button></div>
 
         </form>

@@ -12,7 +12,7 @@ body{
         display: none;
     }
     .right-signin{
-        margin: 10% !important;
+        margin: 5% !important;
         padding: 10% !important;
     }
 }  
@@ -41,7 +41,7 @@ form{
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-input[type="text"]{
+input[type="text"],input[type="password"],input[type="email"],input[type="tel"]{
     width: 100%;
     height: 35px;
     border-radius: 8px;
