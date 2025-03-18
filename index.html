@@ -11,18 +11,30 @@
 </head>
 
 <body>
+
     <nav class="custom-navbar">
-        <a>
-            <div class="nav-split">
-                <button class="custom-button">تسجيل الدخول</button>
-                <button class="custom-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-        </a>
-        <a href="#Home-page">الرئيسية</a>
-        <a href="#Recipe-page">وصفات</a>
-        <a href="#contact">تواصل معنا</a>
-        <a href="#Home"><img src="assets/initial-logo.png" height="40" alt="Mummy's Yummy's logo"></a>
+        
+        <!-- Rightmost: Logo -->
+        <div class="nav-right">
+            <a href="#Home"><img src="assets/initial-logo.png" alt="Mummy's Yummy's logo"></a>
+        </div>
+    
+        <!-- Center: Links -->
+        <div class="nav-center">
+            <a href="#Home-page">الرئيسية</a>
+            <a href="#Recipe-page">وصفات</a>
+            <a href="#contact">تواصل معنا</a>
+        </div>
+    
+
+        <!-- Leftmost: Buttons -->
+        <div class="nav-left">
+            <button class="custom-button">تسجيل الدخول</button>
+            <button class="custom-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
     </nav>
+    
+    
 
     <section class="Home-page" id="Home-page">
         <div class="Home-page-summary">
@@ -36,6 +48,12 @@
             </div>
         </div>
     </section>
+
+    
+    <section class="fullscreen-section">
+        <h1>Welcome to My Page</h1>
+    </section>        
+
 
     <footer id="contact" class="contact">
         <div class="contact-icons">
@@ -70,9 +88,6 @@
                 </li>
                 <li>
                     <a href="#Recipe-page">وصفات</a>
-                </li>
-                <li>
-                    <a href="#">صفحات ثانيه تنحط زي المفضلة؟</a>
                 </li>
             </ul>
         </div>
