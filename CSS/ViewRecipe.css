@@ -1,0 +1,329 @@
+/* General Styles */
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin-top: 70px;
+    /* Added margin to prevent overlap */
+}
+
+/* Recipe Image */
+.recipe-image {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header Section */
+.header-section {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+.recipe-title {
+    font-size: 2.5rem;
+    color: #D4AC0D;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Recipe Details Container */
+.recipe-details-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.recipe-details-container>div {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Section Titles */
+.recipe-details h2,
+.ingredients h2,
+.essentials h2,
+.tags h2,
+.steps h2 {
+    font-size: 1.5rem;
+    color: #D4AC0D;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #D4AC0D;
+    padding-bottom: 5px;
+}
+
+/* Recipe Details */
+.recipe-details p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Ingredients and Essentials */
+.ingredients ul,
+.essentials ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients li,
+.essentials li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Tags */
+.tags {
+    text-align: right;
+}
+
+.tags .tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #555;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Steps */
+.steps ol {
+    padding-right: 20px;
+}
+
+.steps li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+    /* Increased gap for more spacing */
+}
+
+.action-buttons button {
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+/* Collapsible Content */
+.collapse {
+    margin-top: 10px;
+}
+
+/* Special Effect Card Style for "عرض المزيد" */
+.special-card {
+    background: linear-gradient(45deg, #f0f0f0, #ffffff);
+    /* Gradient background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition for hover effect */
+}
+
+.special-card:hover {
+    transform: translateY(-5px);
+    /* Slight lift on hover */
+}
+
+.special-card .card-body {
+    padding: 15px;
+}
+
+.special-card .card-title {
+    font-size: 1.25rem;
+    color: #D4AC0D;
+    margin-bottom: 10px;
+}
+
+.special-card ul,
+.special-card ol {
+    padding-right: 20px;
+    list-style: none;
+}
+
+.special-card li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* NAVBAR */
+nav {
+    direction: rtl;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Ensure it stretches to the left edge */
+    width: 100%;
+    /* Ensure it stretches to the right edge */
+    background-color: rgba(255, 255, 255, 0.405);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    padding: 1px;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-left {
+    display: flex;
+    gap: 15px;
+    /* Adjust the gap as needed */
+    align-items: center;
+    /* Vertically align items */
+}
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgba(45, 9, 13, 0.905);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 16px;
+    flex-shrink: 0;
+}
+
+nav a:hover {
+    color: rgb(182, 182, 182);
+}
+
+.custom-navbar img {
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.nav-split {
+    float: left;
+    margin-left: 1%;
+}
+
+.custom-button {
+    font-size: 13px;
+    color: aliceblue;
+    background-color: rgba(45, 9, 13, 0.905);
+    font-weight: bold;
+    border-radius: 80px;
+    border-color: rgb(255, 255, 255);
+    padding: 10px 15px 10px 15px;
+}
+
+.custom-button:hover {
+    background-color: rgb(206, 205, 205);
+    color: rgba(45, 9, 13, 0.905);
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    border-radius: 80px;
+    font-size: 13px;
+    padding: 8px 15px;
+    width: 90%;
+}
+
+.custom-search {
+    font-size: 15px;
+    color: grey;
+    border-radius: 80px;
+    background-color: #ffffff;
+    border-color: aliceblue;
+    padding: 8px 13px 8px 13px;
+}
+
+.custom-search:hover {
+    background-color: rgb(206, 205, 205);
+    color: white;
+}
+
+/* Additional Style for Back Arrow */
+.back-arrow {
+    font-size: 18px;
+    color: rgba(45, 9, 13, 0.905);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    /* Vertically align the arrow */
+}
+
+.back-arrow:hover {
+    color: rgb(182, 182, 182);
+}
+
+/* Specific Button Styles */
+.like-button {
+    background-color: #f44336;
+    /* Red */
+}
+
+.comment-button {
+    background-color: #03A9F4;
+    /* Light Blue */
+}
+
+.save-button {
+    background-color: #FFC107;
+    /* Brownish Yellow */
+}
