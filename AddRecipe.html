@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!--style sheets-->
   <link rel="stylesheet" href="CSS/AddRecipe.css">
-  <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 
@@ -36,7 +35,7 @@
       <a href="#Recipe-page">وصفات</a>
       <a href="#contact">تواصل معنا</a>
   </div>
-
+  
   <div class="nav-left">
     <div class="search-container">
         <button class="custom-search">
@@ -49,6 +48,7 @@
 </div>
 
 </nav>
+
 
 
  <!-- Main Container -->
@@ -170,6 +170,17 @@
      </div>
     </section>
 
+    <!-- Recipe Steps Section -->
+    <section class="recipe-steps-section">
+      <h2 class="section-title">خطوات الوصفة</h2>
+      <div id="steps-container">
+          <div class="step-input-group">
+              <textarea class="form-control step-description" rows="3" placeholder="أدخل خطوة"></textarea>
+              <button type="button" class="remove-step-button" onclick="removeStep(this)">-</button>
+          </div>
+      </div>
+      <button type="button" class="add-step-button" onclick="addStep()">+</button>
+    </section>
 
     <!-- Tags Section -->
     <section class="tags-section">
@@ -346,6 +357,23 @@
    showConfirmationMessage('تم حفظ المسودة.', 'draft');
    // Add your save draft logic here (e.g., saving data to local storage)
   }
+
+    // Dynamic Recipe Steps
+  function addStep() {
+      const stepsContainer = document.getElementById('steps-container');
+      const stepDiv = document.createElement('div');
+      stepDiv.className = 'step-input-group';
+      stepDiv.innerHTML = `
+          <textarea class="form-control step-description" rows="3" placeholder="أدخل خطوة"></textarea>
+          <button type="button" class="remove-step-button" onclick="removeStep(this)">-</button>
+      `;
+      stepsContainer.appendChild(stepDiv);
+  }
+
+  function removeStep(element) {
+      element.parentElement.remove();
+  }
+
  </script>
 </body>
 
