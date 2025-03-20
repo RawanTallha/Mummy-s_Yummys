@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile page</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="CSS/profile.css">
+</head>
+<body>
+
+    
+    <nav class="custom-navbar">
+
+        <!-- Rightmost: Logo -->
+        <div class="nav-right">
+            <a href="#Home"><img src="assets/initial-logo.png" alt="Mummy's Yummy's logo"></a>
+        </div>
+
+        <!-- Center: Links -->
+        <div class="nav-center">
+            <a href="#Home-page">الرئيسية</a>
+            <a href="#Recipe-page">وصفات</a>
+            <a href="#contact">تواصل معنا</a>
+        </div>
+
+        <div class="nav-left">
+            <div class="search-container">
+                <button class="custom-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>     
+        </div>
+
+    </nav>
+
+    <div class="header-background">    
+        <header>
+            <div class="icon-container">
+                <img class="icon" src="assets/profile/profile icon.png" alt="profile icon">
+            </div>
+
+            <div class="user-name">
+                <p class="full-name">ريتال هشام شلي</p>
+                <p class="bio">أحب تجربة وصفات جديدة وابتكار أطباق لذيذة تجمع بين النكهات المختلفة.</p>
+            </div>
+        </header>
+    </div>   
+
+    <!-- bootstrap tabs -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">وصفاتي المنشورة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">المسودة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">المفضلة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">المحفوظات</a>
+        </li>
+    </ul>
+
+    <!-- tab content -->
+    <div class="tab-content">
+
+        <!-- my recipes Tab Content -->
+        <div class="tab-pane fade show active" aria-labelledby="recipes-tab">
+            
+            <section class="Recipe-page" id="Recipe-page">
+                
+                <div class="main">
+                    <ul class="cards">
+                        <li class="cards_item">
+                            <div class="card">
+                                <div class="card_image"><img src="assets/recipe1.jpg"
+                                        alt="A side view of a plate of figs and berries. "></div>
+                                <div class="card_content">
+                                    <h2 class="card_title">اصداف الباستا</h2>
+                                    <div class="card_text">
+                                        <p>وصفة شهية و سهلة الطهي تناسب جميع الاعمار</p>
+                                    </div>
+                                    <div class="card_button">
+                                        <a href="ViewRecipe.html" class="card-button">اقرا الوصفة كاملة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+        
+                        <li class="cards_item">
+                            <div class="card">
+                                <div class="card_image"><img src="assets/recipe2.jpg"
+                                        alt="A side view of a plate of figs and berries. "></div>
+                                <div class="card_content">
+                                    <h2 class="card_title">دياي البوراتا؟</h2>
+                                    <div class="card_text">
+                                        <p>وصفة شهية و سهلة الطهي تناسب جميع الاعمار</p>
+                                    </div>
+                                    <div class="card_button">
+                                        <a href="ViewRecipe.html" class="card-button">اقرا الوصفة كاملة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+        
+                        <li class="cards_item">
+                            <div class="card">
+                                <div class="card_image"><img src="assets/recipe3.jpg"
+                                        alt="A side view of a plate of figs and berries. "></div>
+                                <div class="card_content">
+                                    <h2 class="card_title">كفته لحم</h2>
+                                    <div class="card_text">
+                                        <p>وصفة شهية و سهلة الطهي تناسب جميع الاعمار</p>
+                                    </div>
+                                    <div class="card_button">
+                                        <a href="ViewRecipe.html" class="card-button">اقرا الوصفة كاملة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- draft Tab Content -->
+        <div class="tab-pane fade" aria-labelledby="draft-tab">
+            
+        </div>
+
+
+        <!-- liked tab content -->
+        <div class="tab-pane fade" aria-labelledby="liked-tab">
+            
+        </div>
+
+        <!-- saved Tab Content -->
+        <div class="tab-pane fade" aria-labelledby="saved-tab">
+            
+        </div>
+    </div>
+
+    <footer id="contact" class="contact">
+        <div class="contact-icons">
+            <p class="contact-icons-header">تواصل معنا</p>
+            <ul>
+                <li>
+                    <div class="contact-info-details">
+                        <a href="" target="_blank"><i class="fa-solid fa-phone"></i></a>
+                        <p>+966 538 280 093</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="contact-info-details">
+                        <a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                        <p>Mummys-Yummys@gmail.com</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="contact-info-details">
+                        <a href="" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
+                        <p>F5PM+P4 Al-Balad, Jeddah</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact-browse">
+            <p class="contact-icons-header">تصفح</p>
+            <ul>
+                <li>
+                    <a href="#Home-page">الرئيسية</a>
+                </li>
+                <li>
+                    <a href="#Recipe-page">وصفات</a>
+                </li>
+            </ul>
+        </div>
+
+        <img src="assets/footer.png" alt="footer pic">
+
+    </footer>
+      
+    
+          <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
