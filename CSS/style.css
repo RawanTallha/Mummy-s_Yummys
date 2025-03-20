@@ -121,10 +121,10 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #f4e8c8;
+    background-color: #f4e8c8b0;
     border-radius: 5%;
     padding: 4%;
-    margin: 0% 5% 0% 5%;
+    margin: 0% 1% 0% 1%;
     filter: drop-shadow(0 0 5px rgba(171, 171, 171, 0.25));
 }
 
@@ -140,19 +140,19 @@ nav a:hover {
 
 .Home-page-card {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     flex-wrap: wrap;
     filter: drop-shadow(0 0 5px rgba(171, 171, 171, 0.25));
     border-radius: 5%;
     /* margin: 1% 5% 3% 5%; */
-
 }
 
 .Home-page-card-item {
     width: 30%;
     min-width: 250px;
     padding: 2%;
-    color: #38120abe;
+    /* color: #38120abe; */
+    color: #458693;
 }
 
 .Home-page-card-item p {
@@ -175,7 +175,6 @@ nav a:hover {
     }
 }
 
-
 .Home-page-card-item em {
     font-weight: bold;
 }
@@ -183,11 +182,8 @@ nav a:hover {
 /* Recip page */
 .Recipe-page {
     width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
     background-color: #fffaf1;
-    padding: 3.5%;
+    padding: 3%;
 }
 
 .Recipe-page h1 {
@@ -203,12 +199,6 @@ nav a:hover {
     color: rgb(181, 2, 50);
 }
 
-.Recipe-page-filters {
-    text-align: center;
-    /* padding: 2%; */
-    padding-bottom: 3%;
-}
-
 *,
 *::before,
 *::after {
@@ -216,8 +206,9 @@ nav a:hover {
 }
 
 .main {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%; 
+    margin: 0 auto; 
+    text-align: center; 
 }
 
 .cards {
@@ -227,7 +218,6 @@ nav a:hover {
     margin: 0;
     padding: 0;
     direction: rtl;
-
 }
 
 .cards_item {
@@ -270,7 +260,6 @@ nav a:hover {
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.25));
 }
 
-
 .card {
     background-color: white;
     border-radius: 0.25rem;
@@ -311,31 +300,128 @@ h2.card_title {
     color: white;
 }
 
-.card-button:hover {
+.card-button:hover , .view-more-button:hover{
     background-color: rgb(128, 128, 128);
+}
+
+.view-more-button {
+    text-decoration: none;
+    background-color: rgb(181, 2, 50);
+    border-radius: 20px;
+    padding: 8%;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
+    display: block; 
+    margin: 20px auto;
 }
 
 /* Add recip page */
 .Add-recipe-page {
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+    direction: rtl;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: #38120a;
+    grid-template-columns: 1fr 1fr; 
+    background-color: #4586936d;
+    align-items: center; 
 }
+
+.Add-recipe-page img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+}
+
+.Add-recipe-page-details {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 8%;
+}
+
+.Add-recipe-page-details h1,
+.Add-recipe-page-details p,
+.Add-recipe-page-details button {
+    margin-bottom: 15px;
+}
+
+.Add-recipe-page-details a {
+    text-decoration: none;
+}
+
+.button-56 {
+    align-items: center;
+    background-color: #51a0af;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-56:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+  }
+  
+  .button-56:hover:after {
+    transform: translate(0, 0);
+  }
+  
+  .button-56:active {
+    background-color: white;
+    outline: 0;
+    color: black;
+  }
+  
+  .button-56:hover {
+    outline: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .button-56 {
+      padding: 0 40px;
+    }
+  }
 
 /* CONTACT US/ FOOTER */
 #contact {
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
     background-color: rgba(45, 9, 13, 0.905);
     justify-content: flex-start;
     align-items: center;
     direction: rtl;
     text-align: right;
-    padding: 2%;
-    gap: 50px;
+    padding: 4% 8% 4% 8%;
 }
 
 .contact-icons,
@@ -402,6 +488,11 @@ h2.card_title {
     color: rgb(178, 96, 38);
 }
 
+.contact img {
+    width: 20vw;
+    height: auto;
+}
+
 @media (max-width: 768px) {
     #contact {
         flex-direction: column;
@@ -414,5 +505,9 @@ h2.card_title {
     .contact-browse {
         width: auto;
         align-items: flex-end;
+    }
+
+    .contact img {
+        display: none;
     }
 }

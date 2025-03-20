@@ -30,29 +30,6 @@
 
 
         <!-- Leftmost: Buttons -->
-        <!-- opt 1 -->
-        <!-- <div class="nav-left">
-            <div class="search-container">
-                <button class="custom-search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-            <a href="login.html">
-                <button class="custom-button">تسجيل الدخول</button>
-            </a>
-        </div> -->
-
-        <!-- opt 2 -->
-        <!-- <div class="nav-left">
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="ابحث عن وصفة">
-            </div>
-            <a href="login.html">
-                <button class="custom-button"><i class="fa-solid fa-user"></i></button>
-            </a>
-        </div> -->
-
-        <!-- opt 3 -->
         <div class="nav-left">
             <div class="search-container">
                 <button class="custom-search">
@@ -70,7 +47,7 @@
 
     <section class="Home-page" id="Home-page">
         <div class="Home-page-summary">
-            <img src="assets/yellow-wallpaper (2).png" class="Home-page-pic" alt="">
+            <img src="assets/wallpaper (2).png" class="Home-page-pic" alt="">
             <div class="about-home-page-summary">
                 <img src="assets/initial-logo.png" height="90">
                 <div>
@@ -93,7 +70,8 @@
                         </div>
                         <div class="Home-page-card-item">
                             <div class="home-page-card-icon">
-                                <i class="fa-solid fa-user-group"></i>                </div>
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
                             <p>
                                 <em>منكم و اليكم</em>
                                 <br>
@@ -102,7 +80,8 @@
                         </div>
                         <div class="Home-page-card-item">
                             <div class="home-page-card-icon">
-                                <i class="fa-solid fa-heart"></i>                </div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
                             <p>
                                 <em>مجتمع داعم</em>
                                 <br>
@@ -113,48 +92,11 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="Home-page-card">
-            <div class="Home-page-card-item">
-                <div class="home-page-card-icon">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-                <p>
-                    <em>وصفات متعددة</em>
-                    <br>
-                    من شمال السعودية لجنوبها، وصفات امهاتنا محفوظة
-                </p>
-            </div>
-            <div class="Home-page-card-item">
-                <div class="home-page-card-icon">
-                    <i class="fa-solid fa-user-group"></i>                </div>
-                <p>
-                    <em>منكم و اليكم</em>
-                    <br>
-                    شاركونا احب وصفاتكم
-                </p>
-            </div>
-            <div class="Home-page-card-item">
-                <div class="home-page-card-icon">
-                    <i class="fa-solid fa-heart"></i>                </div>
-                <p>
-                    <em>مجتمع داعم</em>
-                    <br>
-                    هنا كلو يساعد بعضو
-                </p>
-            </div>
-        </div> -->
     </section>
 
 
     <section class="Recipe-page" id="Recipe-page">
         <h1>ايش في بالك <em>نطبخ </em>اليوم؟</h1>
-        <!-- <div class="Recipe-page-filters">
-            <button type="button" class="btn btn-outline-secondary">مقبلات</button>
-            <button type="button" class="btn btn-outline-success">حلويات</button>
-            <button type="button" class="btn btn-outline-danger">مخبوزات</button>
-            <button type="button" class="btn btn-outline-info">اطباق رئيسية</button>
-            <button type="button" class="btn btn-outline-dark">اطباق نباتية</button>
-        </div> -->
         <div class="main">
             <ul class="cards">
                 <li class="cards_item">
@@ -167,7 +109,7 @@
                                 <p>وصفة شهية و سهلة الطهي تناسب جميع الاعمار</p>
                             </div>
                             <div class="card_button">
-                                <a href="#" class="card-button">اقرا الوصفة كاملة</a>
+                                <a href="ViewRecipe.html" class="card-button">اقرا الوصفة كاملة</a>
                             </div>
                         </div>
                     </div>
@@ -183,7 +125,7 @@
                                 <p>وصفة شهية و سهلة الطهي تناسب جميع الاعمار</p>
                             </div>
                             <div class="card_button">
-                                <a href="#" class="card-button">اقرا الوصفة كاملة</a>
+                                <a href="ViewRecipe.html" class="card-button">اقرا الوصفة كاملة</a>
                             </div>
                         </div>
                     </div>
@@ -199,35 +141,31 @@
                                 <p>وصفة شهية و سهلة الطهي تناسب جميع الاعمار</p>
                             </div>
                             <div class="card_button">
-                                <a href="#" class="card-button">اقرا الوصفة كاملة</a>
+                                <a href="ViewRecipe.html" class="card-button">اقرا الوصفة كاملة</a>
                             </div>
                         </div>
                     </div>
                 </li>
-
+                <a href="#" class="view-more-button">
+                    <div>
+                        <i class="fa-solid fa-plus"></i>
+                        <p>
+                            تصفح المزيد
+                        </p>
+                    </div>
+                </a>
             </ul>
         </div>
     </section>
 
-    <!-- <section class="Add-recipe-page">
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_image"><img src="assets/recipe3.jpg"
-                        alt="A side view of a plate of figs and berries. "></div>
-                <div class="card_content">
-                    <h2 class="card_title">كفته لحم</h2>
-                    <div class="card_text">
-                        <p>وصفة شهية و سهلة الطهي تناسب جميع الاعمار</p>
-                    </div>
-                    <div class="card_button">
-                        <a href="#" class="card-button">اقرا الوصفة كاملة</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-    </section> -->
-
+    <section class="Add-recipe-page">
+        <div class="Add-recipe-page-details">
+            <h1>انضم الينا و شاركنا وصفاتك</h1>
+            <p>شارك وصفاتك بكل سهولة و انشر السعادة و البهجة و الفائدة مع الجميع</p>
+            <a href="AddRecipe.html"><button class="button-56" role="button">اكتب وصفتك</button></a>
+        </div>
+        <img src="assets/add-recipie-wallpaper.png" alt="recipe">
+    </section>
 
     <footer id="contact" class="contact">
         <div class="contact-icons">
@@ -265,6 +203,9 @@
                 </li>
             </ul>
         </div>
+
+        <img src="assets/footer.png" alt="footer pic">
+
     </footer>
 
 </body>
