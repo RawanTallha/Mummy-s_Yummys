@@ -5,6 +5,7 @@
 
 body{
     direction: rtl;
+    overflow-x: hidden;
 }
 
 nav {
@@ -13,7 +14,7 @@ nav {
     position: sticky;
     top: 0;
     /* background-color: #66afe1; */
-    background-color: rgba(255, 255, 255, 0.405);
+    background-color: rgba(255, 255, 255, 0.66);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -69,7 +70,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 15px;
+    padding-left: 30px;
     padding-top: 5px;
 }
 
@@ -93,7 +94,9 @@ nav a:hover {
     background-image: url('../assets/cookingFormPic.png');
     background-size: cover;
     background-position: center;
+    background-attachment: local;
     position: relative;
+    width: 100%;
 }
 
 .header-background::before{
