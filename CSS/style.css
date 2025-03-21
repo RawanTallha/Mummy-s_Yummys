@@ -12,7 +12,6 @@ nav {
     z-index: 1000;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
@@ -83,10 +82,12 @@ nav a:hover {
 /* Home section */
 .Home-page {
     width: 100vw;
-    height: 100vh;
-    justify-content: center;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 3%;
+    justify-content: center;
 }
 
 .Home-page-summary {
@@ -95,15 +96,15 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 4%;
+    margin: 1% 5% 1% 5%;
+    filter: drop-shadow(0 0 5px rgba(171, 171, 171, 0.25));
     background-color: #f4e8c8b0;
     border-radius: 5%;
-    padding: 4%;
-    margin: 0% 1% 0% 1%;
-    filter: drop-shadow(0 0 5px rgba(171, 171, 171, 0.25));
 }
 
 .Home-page-pic {
-    width: 25vw;
+    width: 20vw;
     height: auto;
 }
 
@@ -115,40 +116,57 @@ nav a:hover {
 
 .Home-page-card {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     flex-wrap: wrap;
+    /* gap: 5%; */
     filter: drop-shadow(0 0 5px rgba(171, 171, 171, 0.25));
-    border-radius: 5%;
+    padding: 0px;
 }
 
 .Home-page-card-item {
-    width: 30%;
+    width: 20%;
     min-width: 250px;
-    padding: 2%;
+    padding: 1px;
+    color: #458693;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.home-page-card-icon {
+    font-size: 2rem;
     color: #458693;
 }
 
 .Home-page-card-item p {
-    font-size: clamp(14px, 2vw, 24px);
+    font-size: clamp(10px, 2vw, 20px);
     text-align: center;
 }
 
+
 @media (max-width: 768px) {
+
     .Home-page-summary {
         display: block;
-        background-color: white;
-        border-radius: 0%;
-        padding: 4%;
-        margin: 0%;
-        filter: none;
     }
 
-    .slogan {
-        background-color: #f4e8c8b0;
-        border-radius: 5%;
-        padding: 8%;
-        margin: 0% 1% 0% 1%;
-        filter: drop-shadow(0 0 5px rgba(171, 171, 171, 0.25));
+    .Home-page-pic {
+        width: 25vw;
+        height: auto;
+    }
+
+    .Home-page-card-item {
+        width: 15%;
+        min-width: 150px;
+        padding: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .Home-page-pic {
+        display: none !important;
     }
 
     .Home-page-card {
@@ -160,9 +178,6 @@ nav a:hover {
         width: 80%;
     }
 
-    .Home-page-pic {
-        display: none;
-    }
 }
 
 .Home-page-card-item em {
@@ -316,8 +331,6 @@ h2.card_title {
     grid-template-columns: 1fr 1fr;
     background-color: #4586936d;
     align-items: center;
-    height: 80vh;
-    justify-content: center;
 }
 
 .Add-recipe-page img {
