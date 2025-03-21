@@ -29,22 +29,34 @@
 
         <!-- Center: Links -->
         <div class="nav-center">
-            <a href="#Home-page">الرئيسية</a>
+            <a href="index.html">الرئيسية</a>
             <a href="#Recipe-page">وصفات</a>
-            <a href="#contact">تواصل معنا</a>
+            <a href="about-us.html">من نحن</a>
+            <a href="contact.html">تواصل معنا</a>
         </div>
 
 
         <!-- Leftmost: Buttons -->
         <div class="nav-left">
+
             <div class="search-container">
-                <button class="custom-search">
+                <button class="custom-navbar-button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
+
             <a href="login.html">
-                <button class="custom-button"><i class="fa-solid fa-user"></i></button>
+                <button class="custom-navbar-button">
+                    <i class="fa-solid fa-user"></i>
+                </button>
             </a>
+
+            <div class="menu-container">
+                <button class="custom-navbar-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
         </div>
 
     </nav>
@@ -160,8 +172,25 @@
     </div>
 
     <footer id="contact" class="contact">
+        <div class="contact-browse">
+            <p class="contact-icons-header">تصفح</p>
+            <ul>
+                <li>
+                    <a href="#Home-page">الرئيسية</a>
+                </li>
+                <li>
+                    <a href="#Recipe-page">استكشف وصفاتنا</a>
+                </li>
+                <li>
+                    <a href="#Recipe-page">عن فريق وصفات امي</a>
+                </li>
+                <li>
+                    <a href="#Recipe-page">تواصل معنا</a>
+                </li>
+            </ul>
+        </div>
+
         <div class="contact-icons">
-            <p class="contact-icons-header">تواصل معنا</p>
             <ul>
                 <li>
                     <div class="contact-info-details">
@@ -183,19 +212,7 @@
                 </li>
             </ul>
         </div>
-
-        <div class="contact-browse">
-            <p class="contact-icons-header">تصفح</p>
-            <ul>
-                <li>
-                    <a href="#Home-page">الرئيسية</a>
-                </li>
-                <li>
-                    <a href="#Recipe-page">وصفات</a>
-                </li>
-            </ul>
-        </div>
-
+        
         <img src="assets/footer.png" alt="footer pic">
 
     </footer>

@@ -20,12 +20,19 @@ p{
 padding-right: 5%;
 }
 .left-image{
-    background-color:  rgb(112, 116, 130);
+    background-image: url(../assets/profile/plates2.jpg);
+    width: 100%;
+
 }
 .right-signin{
     margin: 10%;
     padding-left: 30%;
     direction: rtl;
+}
+.right-signin a{
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(178, 96, 38);
 }
 hr{
     border-color: rgba(0, 0, 0, 0.753);
