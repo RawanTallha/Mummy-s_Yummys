@@ -1,0 +1,372 @@
+/* General Styles */
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+   }
+   
+   
+   /* Custom Font */
+   @font-face {
+    font-family: 'XPVosta';
+    src: url('/fonts/XP-Vosta/XP-Vosta.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+   }
+   
+   
+   .recipe-card .card-title {
+    font-family: 'XPVosta', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+   }
+   
+   
+   /* Filter Header (Radio Buttons) */
+   .filter-header {
+    background-color: #ffc107;
+    padding: 20px 0;
+    margin-top: 70px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+   }
+   
+   
+   .filter-header .form-check-inline {
+    margin: 0 10px;
+   }
+   
+   
+   .filter-header .form-check-label {
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+   }
+   
+   
+   .filter-header .form-check-input {
+    margin-left: 0;
+   }
+   
+   
+   /* Recipe Cards Container */
+   .recipe-cards-container {
+    padding: 20px;
+   }
+   
+   
+   /* Recipe Card */
+   .recipe-card {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+    background-color: #fff;
+    position: relative;
+   }
+   
+   
+   .recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   }
+   
+   
+   .card-image-wrapper {
+    position: relative;
+    overflow: hidden;
+   }
+   
+   
+   .recipe-card .card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+   }
+   
+   
+   .recipe-card:hover .card-img-top {
+    transform: scale(1.2);
+   }
+   
+   
+   .recipe-card .card-body {
+    text-align: center;
+    padding: 20px;
+   }
+   
+   
+   .recipe-card .card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+   }
+   
+   
+   /* Recipe Button Style */
+   .recipe-button {
+    display: inline-flex;
+    font-size: 13px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 4px 4px 0 #2980b9;
+    transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+    text-decoration: none;
+   }
+   
+   
+   .recipe-button:hover {
+    box-shadow: none;
+    background-color: #2980b9;
+   }
+   
+   
+   /* Hover Overlay */
+   .recipe-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+    pointer-events: none;
+   }
+   
+   
+   .recipe-card:hover::before {
+    opacity: 1;
+   }
+   
+   
+   /* Card Content Transition */
+   .recipe-card .card-body {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+   }
+   
+   
+   .recipe-card:hover .card-body {
+    transform: translateY(-10px);
+    opacity: 0.8;
+   }
+   
+   
+   /* NAVBAR */
+   nav {
+    direction: rtl;
+    text-align: right;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.793);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 1px;
+   }
+   
+   
+   nav::-webkit-scrollbar {
+    display: none;
+   }
+   
+   
+   .nav-left {
+    display: flex;
+    gap: 0px;
+   }
+   
+   
+   .nav-center {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: center;
+   }
+   
+   
+   nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 16px;
+    flex-shrink: 0;
+   }
+   
+   
+   nav a:hover {
+    color: rgb(182, 182, 182);
+   }
+   
+   
+   .custom-navbar img {
+    height: 40px;
+    flex-shrink: 0;
+   }
+   
+   
+   .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   
+   
+   .custom-navbar-button {
+    display: flex;
+    font-size: 13px;
+    align-items: center;
+    color: white;
+    background-color: #51a0af;
+    border: 2px solid #111;
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 4px 4px 0 #111;
+    transition: box-shadow 0.2s ease-out;
+   }
+   
+   
+   .custom-navbar-button:hover {
+    box-shadow: none;
+   }
+   
+   
+   /* CONTACT US/ FOOTER */
+   #contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    background-color: rgba(45, 9, 13, 0.905);
+    justify-content: flex-start;
+    align-items: center;
+    direction: rtl;
+    padding: 4% 8% 4% 8%;
+    overflow-x: hidden;
+   }
+   
+   
+   .contact-icons,
+   .contact-browes {
+    display: flex;
+    flex-direction: column;
+   }
+   
+   
+   .contact-icons p {
+    margin: 0;
+   }
+   
+   
+   .contact-icons-header {
+    font-size: 30px;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+   }
+   
+   
+   .contact-icons ul,
+   .contact-browse ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+   }
+   
+   
+   .contact-icons li {
+    padding: 2px;
+   }
+   
+   
+   .contact-icons a {
+    color: #38120a;
+    font-size: 20px;
+    background-color: #fbfaff;
+    border-radius: 30px;
+    padding: 10px;
+   }
+   
+   
+   .contact-icons a:hover {
+    color: rgb(178, 96, 38);
+   }
+   
+   
+   .contact-info-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 15px;
+    color: #ffffff;
+    font-size: 15px;
+   }
+   
+   
+   .contact-browse a {
+    text-decoration: none;
+    color: inherit;
+   }
+   
+   
+   .contact-browse li {
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+   }
+   
+   
+   .contact-browse a:hover {
+    color: rgb(178, 96, 38);
+   }
+   
+   
+   .contact img {
+    width: 20vw;
+    height: auto;
+   }
+   
+   
+   @media (max-width: 768px) {
+    #contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    }
+   
+   
+    .contact img {
+    display: none;
+    }
+   }
+   
+   
+   @media (max-width: 480px) {
+    #contact {
+    display: grid;
+    row-gap: 50px;
+    padding-top: 80px;
+    grid-template-columns: 1fr !important;
+    }
+   }
+   
