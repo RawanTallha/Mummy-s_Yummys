@@ -29,7 +29,7 @@ nav {
     z-index: 1000;
     display: flex;
     align-items: center;
-    overflow-x: auto;
+    overflow-x: hidden;
     white-space: nowrap;
     scrollbar-width: none;
     width: 100vw;
@@ -319,6 +319,7 @@ nav a:hover {
     align-items: center;
     direction: rtl;
     padding: 4% 8% 4% 8%;
+    overflow-x: hidden;
 }
 
 .contact-icons,
