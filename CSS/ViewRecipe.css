@@ -1,9 +1,99 @@
+
+@font-face {
+    font-family: 'XPVosta';
+    src: url('/fonts/XP-Vosta/XP-Vosta.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* General Styles */
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #f8f9fa;
+    background-image: url('/assets/cookingFormPic.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-color: #ffffff;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
+   }
+
+/* NAVBAR */
+nav {
+    direction: rtl;
+    text-align: right;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.793);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 1px;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-left {
+    display: flex;
+    gap: 0px;
+}
+
+.nav-center {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 16px;
+    flex-shrink: 0;
+}
+
+nav a:hover {
+    color: rgb(182, 182, 182);
+}
+
+.custom-navbar img {
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-navbar-button {
+    display: flex;
+    font-size: 13px;
+    align-items: center;
+    color: white;
+    background-color: #51a0af;
+    border: 2px solid #111;
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 4px 4px 0 #111;
+    transition: box-shadow 0.2s ease-out;
+}
+
+.custom-navbar-button:hover {
+    box-shadow: none;
 }
 
 /* Main Container */
@@ -42,11 +132,14 @@ body {
 }
 
 .recipe-title {
-    font-size: 2.5rem;
-    color: #D4AC0D;
+    font-family: 'XPVosta';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 3.5rem;
+    color: rgba(45, 9, 13, 0.905);
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
+   }
 
 .subtitle {
     font-size: 1.2rem;
@@ -74,6 +167,7 @@ body {
 .essentials h2,
 .tags h2,
 .steps h2 {
+    font-family: 'XPVosta';
     font-size: 1.5rem;
     color: #D4AC0D;
     margin-bottom: 15px;
@@ -139,13 +233,22 @@ body {
 
 .action-buttons button {
     color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1rem;
+    justify-content: center;
+    font-size: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
+    border: 2px solid #111;
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 4px 4px 0 #111;
+    transition: box-shadow 0.2s ease-out;
+    gap:10px
+}
+.action-buttons button:hover {
+    box-shadow: none;
 }
 
 /* Collapsible Content */
@@ -192,138 +295,117 @@ body {
     margin-bottom: 5px;
 }
 
-/* NAVBAR */
-nav {
-    direction: rtl;
-    text-align: right;
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* Ensure it stretches to the left edge */
-    width: 100%;
-    /* Ensure it stretches to the right edge */
-    background-color: rgba(255, 255, 255, 0.405);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    box-sizing: border-box;
-    padding: 1px;
-}
-
-nav::-webkit-scrollbar {
-    display: none;
-}
-
-.nav-left {
-    display: flex;
-    gap: 15px;
-    /* Adjust the gap as needed */
-    align-items: center;
-    /* Vertically align items */
-}
-
-.nav-center {
-    display: flex;
-    gap: 20px;
-    flex-grow: 1;
-    justify-content: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: rgba(45, 9, 13, 0.905);
-    font-size: 15px;
-    font-weight: bold;
-    padding: 15px 16px;
-    flex-shrink: 0;
-}
-
-nav a:hover {
-    color: rgb(182, 182, 182);
-}
-
-.custom-navbar img {
-    height: 40px;
-    flex-shrink: 0;
-}
-
-.nav-split {
-    float: left;
-    margin-left: 1%;
-}
-
-.custom-button {
-    font-size: 13px;
-    color: aliceblue;
-    background-color: rgba(45, 9, 13, 0.905);
-    font-weight: bold;
-    border-radius: 80px;
-    border-color: rgb(255, 255, 255);
-    padding: 10px 15px 10px 15px;
-}
-
-.custom-button:hover {
-    background-color: rgb(206, 205, 205);
-    color: rgba(45, 9, 13, 0.905);
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.search-bar {
-    border-radius: 80px;
-    font-size: 13px;
-    padding: 8px 15px;
-    width: 90%;
-}
-
-.custom-search {
-    font-size: 15px;
-    color: grey;
-    border-radius: 80px;
-    background-color: #ffffff;
-    border-color: aliceblue;
-    padding: 8px 13px 8px 13px;
-}
-
-.custom-search:hover {
-    background-color: rgb(206, 205, 205);
-    color: white;
-}
-
-/* Additional Style for Back Arrow */
-.back-arrow {
-    font-size: 18px;
-    color: rgba(45, 9, 13, 0.905);
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    /* Vertically align the arrow */
-}
-
-.back-arrow:hover {
-    color: rgb(182, 182, 182);
-}
-
 /* Specific Button Styles */
 .like-button {
-    background-color: #f44336;
-    /* Red */
+    background-color: #FFC107;
 }
 
 .comment-button {
-    background-color: #03A9F4;
-    /* Light Blue */
+    background-color:#51a0af;  
 }
 
 .save-button {
-    background-color: #FFC107;
-    /* Brownish Yellow */
+    background-color: rgba(45, 9, 13, 100);
+    
+}
+
+
+/* CONTACT US/ FOOTER */
+#contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    background-color: rgba(45, 9, 13, 0.905);
+    justify-content: flex-start;
+    align-items: center;
+    direction: rtl;
+    padding: 4% 8% 4% 8%;
+}
+
+.contact-icons,
+.contact-browes {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-icons p {
+    margin: 0;
+}
+
+.contact-icons-header {
+    font-size: 30px;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.contact-icons ul,
+.contact-browse ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-icons li {
+    padding: 2px;
+}
+
+.contact-icons a {
+    color: #38120a;
+    font-size: 20px;
+    background-color: #fbfaff;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.contact-icons a:hover {
+    color: rgb(178, 96, 38);
+}
+
+.contact-info-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 15px;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.contact-browse a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-browse li {
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+}
+
+.contact-browse a:hover {
+    color: rgb(178, 96, 38);
+}
+
+.contact img {
+    width: 20vw;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    #contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact img {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact {
+        display: grid;
+        row-gap: 50px;
+        padding-top: 80px;
+        grid-template-columns: 1fr !important;
+    }
 }
