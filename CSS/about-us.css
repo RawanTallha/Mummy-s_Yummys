@@ -1,3 +1,11 @@
+
+@font-face {
+  font-family: 'XPVosta';
+  src: url('/fonts/XP-Vosta/XP-Vosta.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Global Styles */
 body {
   margin: 0;
@@ -143,7 +151,7 @@ nav a:hover {
 .title {
 
   font-size: 1.75rem;
-  font-family: 'XPVostaRegular'; /* من fontlibrary */
+  font-family: 'XPVosta';
   font-weight: normal;
   color: rgb(181, 2, 50); /* اللون المطلوب */
   border-bottom: 2px solid #D4AC0D;
@@ -264,8 +272,7 @@ h2 {
 
 
 
-  
-  /* FOOTER */
+  /* CONTACT US/ FOOTER */
 #contact {
   display: grid;
   grid-template-columns: 1fr 1fr 0.5fr;
@@ -281,6 +288,10 @@ h2 {
 .contact-browes {
   display: flex;
   flex-direction: column;
+}
+
+.contact-icons p {
+  margin: 0;
 }
 
 .contact-icons-header {
@@ -344,6 +355,7 @@ h2 {
 
 @media (max-width: 768px) {
   #contact {
+      display: grid;
       grid-template-columns: 1fr 1fr;
   }
 
@@ -354,10 +366,9 @@ h2 {
 
 @media (max-width: 480px) {
   #contact {
+      display: grid;
       row-gap: 50px;
       padding-top: 80px;
       grid-template-columns: 1fr !important;
   }
-
-
 }
