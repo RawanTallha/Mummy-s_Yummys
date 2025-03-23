@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
-
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>إكتشف وصفاتنا</title>
+
  <!-- Fonts and Stylesheets -->
  <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,259 +15,154 @@
  <link rel="stylesheet" href="CSS/explore.css">
 </head>
 
-
 <body>
- <!-- Navbar (similar to the view recipe page) -->
+
+ <!-- Navbar -->
  <nav class="custom-navbar">
- <!-- Rightmost: Logo -->
- <div class="nav-right">
- <a href="#Home"><img src="assets/initial-logo.png" alt="Mummy's Yummy's logo"></a>
- </div>
+   <div class="nav-right">
+     <a href="#Home"><img src="assets/initial-logo.png" alt="Mummy's Yummy's logo"></a>
+   </div>
 
+   <div class="nav-center">
+     <a href="#Home-page">الرئيسية</a>
+     <a href="#Recipe-page">وصفات</a>
+     <a href="about-us.html">من نحن</a>
+     <a href="contact.html">تواصل معنا</a>
+   </div>
 
- <!-- Center: Links -->
- <div class="nav-center">
- <a href="#Home-page">الرئيسية</a>
- <a href="#Recipe-page">وصفات</a>
- <a href="#about-us">من نحن</a>
- <a href="#contact">تواصل معنا</a>
- </div>
-
-
- <!-- Leftmost: Buttons -->
- <div class="nav-left">
- <div class="search-container">
- <button class="custom-navbar-button">
- <i class="fa-solid fa-magnifying-glass"></i>
- </button>
- </div>
- <a href="login.html">
- <button class="custom-navbar-button"><i class="fa-solid fa-user"></i></button>
- </a>
- </div>
+   <div class="nav-left">
+     <div class="search-container">
+       <button class="custom-navbar-button">
+         <i class="fa-solid fa-magnifying-glass"></i>
+       </button>
+     </div>
+     <a href="login.html">
+       <button class="custom-navbar-button"><i class="fa-solid fa-user"></i></button>
+     </a>
+   </div>
  </nav>
 
 
- <!-- Filter Header (Radio Buttons) -->
- <header class="filter-header">
- <div class="container">
- <div class="row">
- <div class="col-md-12">
- <form id="recipe-filter-form">
- <div class="form-check form-check-inline">
- <input class="form-check-input" type="radio" name="recipeType" id="appetizers" value="appetizers">
- <label class="form-check-label" for="appetizers">مقبلات</label>
- </div>
- <div class="form-check form-check-inline">
- <input class="form-check-input" type="radio" name="recipeType" id="main-dish" value="main-dish">
- <label class="form-check-label" for="main-dish">طبق رئيسي</label>
- </div>
- <div class="form-check form-check-inline">
- <input class="form-check-input" type="radio" name="recipeType" id="dessert" value="dessert">
- <label class="form-check-label" for="dessert">تحلية</label>
- </div>
- <div class="form-check form-check-inline">
- <input class="form-check-input" type="radio" name="recipeType" id="salad" value="salad">
- <label class="form-check-label" for="salad">سلطة</label>
- </div>
- <div class="form-check form-check-inline">
- <input class="form-check-input" type="radio" name="recipeType" id="soup" value="soup">
- <label class="form-check-label" for="soup">شُربة</label> 
- </div>
- <div class="form-check form-check-inline">
- <input class="form-check-input" type="radio" name="recipeType" id="beverage" value="beverage">
- <label class="form-check-label" for="beverage">مشروب</label>
- </div>
- </form>
- </div>
- </div>
- </div>
- </header>
-
-
- <!-- Recipe Cards -->
- <div class="container recipe-cards-container">
- <div class="row">
- <!-- Recipe Card 1 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button"> ! جربها الحين </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 2 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button"> ! جربها الحين </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 3 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button">! جربها الحين  </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 4 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button">! جربها الحين  </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 5 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button">! جربها الحين  </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 6 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button">! جربها الحين  </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 7 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button">! جربها الحين  </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 8 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button">! جربها الحين  </a>
- </div>
- </div>
- </div>
- <!-- Recipe Card 9 -->
- <div class="col-md-4">
- <div class="card recipe-card">
- <div class="card-image-wrapper">
- <img src="assets/foods.png" class="card-img-top" alt="Recipe Image">
- </div>
- <div class="card-body">
- <h5 class="card-title">اسم الطبق</h5>
- <p class="card-text">اسم الشيف</p>
- <p class="card-text">وصفة مختصرة عن الطبق</p>
- <a href="ViewRecipe.html" class="custom-navbar-button recipe-button"> ! جربها الحين </a>
- </div>
- </div>
- </div>
  
- </div>
- </div>
+
+ <section class="recipe-preview-section">
+  <div class="container">
+    <div class="cards-wrapper">
+
+      <!-- الصف الأول -->
+      <div class="card-row">
+        <!-- وصفة 1 -->
+        <div class="recipe-preview-content">
+          <img src="assets/kbsa.jpg" alt="كبسة لحم" class="recipe-image">
+          <h3 class="recipe-title">كبسة لحم </h3>
+          <p class="recipe-chef">الشيف: أم عبدالله</p>
+          <p class="recipe-description">وصفة رقم 1: كبسة لحم شهية بطريقتها الأصلية، مثالية لجميع المناسبات.</p>
+          <a href="ViewRecipe.html" class="recipe-preview-button">جرب الوصفة</a>
+        </div>
+
+        <!-- وصفة 2 -->
+        <div class="recipe-preview-content">
+          <img src="assets/kbsa-dojaj.jpg" alt="مقلوبة دجاج" class="recipe-image">
+          <h3 class="recipe-title">مقلوبة دجاج </h3>
+          <p class="recipe-chef">الشيف: نورة</p>
+          <p class="recipe-description">وصفة رقم 2: مقلوبة مميزة بطعمها الغني والتوابل العربية الأصيلة.</p>
+          <a href="ViewRecipe.html" class="recipe-preview-button">جرب الوصفة</a>
+        </div>
+
+        <!-- وصفة 3 -->
+        <div class="recipe-preview-content">
+          <img src="assets/shorba.jpg" alt="شوربة عدس" class="recipe-image">
+          <h3 class="recipe-title">شوربة العدس </h3>
+          <p class="recipe-chef">الشيف: فاطمة</p>
+          <p class="recipe-description">وصفة رقم 3: شوربة مغذية ولذيذة، مثالية لأيام الشتاء الباردة.</p>
+          <a href="ViewRecipe.html" class="recipe-preview-button">جرب الوصفة</a>
+        </div>
+      </div>
+
+      <!-- الصف الثاني -->
+      <div class="card-row">
+        <!-- وصفة 4 -->
+        <div class="recipe-preview-content">
+          <img src="assets/kba.jpg" alt="كبة مقلية" class="recipe-image">
+          <h3 class="recipe-title">كبة مقلية </h3>
+          <p class="recipe-chef">الشيف: سارة</p>
+          <p class="recipe-description">وصفة رقم 4: كبة مقرمشة من الخارج وطرية من الداخل بطعم لا يقاوم.</p>
+          <a href="ViewRecipe.html" class="recipe-preview-button">جرب الوصفة</a>
+        </div>
+
+        <!-- وصفة 5 -->
+        <div class="recipe-preview-content">
+          <img src="assets/worg-3nb.jpg" alt="ورق عنب" class="recipe-image">
+          <h3 class="recipe-title">ورق عنب </h3>
+          <p class="recipe-chef">الشيف: أم يوسف</p>
+          <p class="recipe-description">وصفة رقم 5: ورق عنب على الطريقة المنزلية المحشوة بالأرز والخضار.</p>
+          <a href="ViewRecipe.html" class="recipe-preview-button">جرب الوصفة</a>
+        </div>
+
+        <!-- وصفة 6 -->
+        <div class="recipe-preview-content">
+          <img src="assets/mhlbea.jpg" alt="مهلبية" class="recipe-image">
+          <h3 class="recipe-title">مهلبية </h3>
+          <p class="recipe-chef">الشيف: خلود</p>
+          <p class="recipe-description">وصفة رقم 6: حلى المهلبية الكريمي بنكهات الفانيليا والمكسرات.</p>
+          <a href="ViewRecipe.html" class="recipe-preview-button">جرب الوصفة</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
- <!-- Footer (as in Index) -->
+
+
+
+
+
+
+
+
+
+
+ 
+ <!-- Footer -->
  <footer id="contact" class="contact">
- <div class="contact-browse">
- <p class="contact-icons-header">تصفح</p>
- <ul>
- <li>
- <a href="#Home-page">الرئيسية</a>
- </li>
- <li>
- <a href="#Recipe-page">استكشف وصفاتنا</a>
- </li>
- <li>
- <a href="#Recipe-page">عن فريق وصفات امي</a>
- </li>
- <li>
- <a href="#contact">تواصل معنا</a>
- </li>
- </ul>
- </div>
+   <div class="contact-browse">
+     <p class="contact-icons-header">تصفح</p>
+     <ul>
+       <li><a href="#Home-page">الرئيسية</a></li>
+       <li><a href="#Recipe-page">استكشف وصفاتنا</a></li>
+       <li><a href="#Recipe-page">عن فريق وصفات امي</a></li>
+       <li><a href="#contact">تواصل معنا</a></li>
+     </ul>
+   </div>
 
-
- <div class="contact-icons">
- <ul>
- <li>
- <div class="contact-info-details">
- <a href="" target="_blank"><i class="fa-solid fa-phone"></i></a>
- <p>+966 538 280 093</p>
- </div>
- </li>
- <li>
- <div class="contact-info-details">
- <a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a>
- <p>Mummys-Yummys@gmail.com</p>
- </div>
- </li>
- <li>
- <div class="contact-info-details">
- <a href="" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
- <p>F5PM+P4 Al-Balad, Jeddah</p>
- </div>
- </li>
- </ul>
- </div>
- <img src="assets/footer.png" alt="footer pic">
+   <div class="contact-icons">
+     <ul>
+       <li>
+         <div class="contact-info-details">
+           <a href="#"><i class="fa-solid fa-phone"></i></a>
+           <p>+966 538 280 093</p>
+         </div>
+       </li>
+       <li>
+         <div class="contact-info-details">
+           <a href="#"><i class="fa-solid fa-envelope"></i></a>
+           <p>Mummys-Yummys@gmail.com</p>
+         </div>
+       </li>
+       <li>
+         <div class="contact-info-details">
+           <a href="#"><i class="fa-solid fa-location-dot"></i></a>
+           <p>F5PM+P4 Al-Balad, Jeddah</p>
+         </div>
+       </li>
+     </ul>
+   </div>
+   <img src="assets/footer.png" alt="footer pic">
  </footer>
-
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 
 </html>
