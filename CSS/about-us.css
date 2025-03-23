@@ -272,7 +272,7 @@ h2 {
 
 
 
-  /* CONTACT US/ FOOTER */
+ /* CONTACT US/ FOOTER */
 #contact {
   display: grid;
   grid-template-columns: 1fr 1fr 0.5fr;
@@ -281,7 +281,6 @@ h2 {
   align-items: center;
   direction: rtl;
   padding: 4% 8% 4% 8%;
-  overflow-x: hidden;
 }
 
 .contact-icons,
@@ -371,4 +370,5 @@ h2 {
       padding-top: 80px;
       grid-template-columns: 1fr !important;
   }
+}
 }
