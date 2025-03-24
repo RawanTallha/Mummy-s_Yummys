@@ -58,6 +58,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 15px;
 }
 
 .custom-navbar-button {
@@ -70,7 +71,7 @@ nav a:hover {
     border-radius: 8px;
     padding: 10px 15px;
     width: 100%;
-    max-width: 400px;
+    max-width: fit-content;
     box-shadow: 4px 4px 0 #111;
     transition: box-shadow 0.2s ease-out;
 }

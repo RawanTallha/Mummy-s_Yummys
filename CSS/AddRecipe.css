@@ -1,740 +1,740 @@
-
 @font-face {
   font-family: 'XPVosta';
-  src: url('/fonts/XP-Vosta/XP-Vosta.ttf') format('truetype'); 
+  src: url('/fonts/XP-Vosta/XP-Vosta.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 /* Global Styles */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Cairo', sans-serif;
-    color: #333;
-    background: #f7f7f7;
-    text-align: right;
-    overflow-x: hidden;
-    }
-  
-  
-  /* NAVBAR */
-  nav {
-    direction: rtl;
-    text-align: right;
-    position: sticky;
-    top: 0;
-    background-color: rgba(255, 255, 255, 0.793);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    overflow-x: hidden;
-    white-space: nowrap;
-    scrollbar-width: none;
-    width: 100vw;
-    box-sizing: border-box;
-    padding: 1px;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  color: #333;
+  background: #f7f7f7;
+  text-align: right;
+  overflow-x: hidden;
+}
 
-  nav::-webkit-scrollbar {
-    display: none;
-  }
 
-  .nav-left {
-    display: flex;
-    gap: 0px;
-  }
+/* NAVBAR */
+nav {
+  direction: rtl;
+  text-align: right;
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.793);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 1px;
+}
 
-  .nav-center {
-    display: flex;
-    gap: 10px;
-    flex-grow: 1;
-    justify-content: center;
-  }
+nav::-webkit-scrollbar {
+  display: none;
+}
 
-  nav a {
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 15px 16px;
-    flex-shrink: 0;
-  }
+.nav-left {
+  display: flex;
+  gap: 0px;
+}
 
-  nav a:hover {
-    color: rgb(182, 182, 182);
-  }
+.nav-center {
+  display: flex;
+  gap: 10px;
+  flex-grow: 1;
+  justify-content: center;
+}
 
-  .custom-navbar img {
-    height: 40px;
-    flex-shrink: 0;
-  }
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 15px 16px;
+  flex-shrink: 0;
+}
 
-  .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+nav a:hover {
+  color: rgb(182, 182, 182);
+}
 
-  .custom-navbar-button {
-    display: flex;
-    font-size: 13px;
-    align-items: center;
-    color: white;
-    background-color: #51a0af;
-    border: 2px solid #111;
-    border-radius: 8px;
-    padding: 10px 15px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 4px 4px 0 #111;
-    transition: box-shadow 0.2s ease-out;
-  }
+.custom-navbar img {
+  height: 40px;
+  flex-shrink: 0;
+}
 
-  .custom-navbar-button:hover {
-    box-shadow: none;
-  }
-  
-  /* Main Container */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.custom-navbar-button {
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+  color: white;
+  background-color: #51a0af;
+  border: 2px solid #111;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 100%;
+  max-width: fit-content;
+  box-shadow: 4px 4px 0 #111;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.custom-navbar-button:hover {
+  box-shadow: none;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('../assets/cookingFormPic.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 100px;
+}
+
+
+
+
+/* Header Section */
+.header-section {
+  background: linear-gradient(to right, rgba(255, 255, 255, 100),
+      rgba(245, 245, 245, 100));
+  background: url('/assets/pageBG.jpg');
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+
+
+
+.header-section:hover {
+  transform: translateY(-3px);
+}
+
+
+
+
+.recipe-title {
+  font-family: 'XPVosta';
+  font-weight: bold;
+  font-size: 3.5rem;
+  color: rgba(45, 9, 13, 0.905);
+  margin-bottom: 10px;
+}
+
+
+
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+
+
+
+/* Form Container */
+.form-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* Section Titles */
+.section-title {
+  font-family: 'XPVosta';
+  font-size: 1.75rem;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 2px solid #D4AC0D;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+
+/* Recipe Details Section */
+.recipe-details .form-group {
+  margin-bottom: 30px;
+}
+
+
+
+
+.recipe-details .form-label {
+  font-weight: normal;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+
+.recipe-details .form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Cairo', sans-serif;
+  font-weight: normal;
+}
+
+
+
+
+.recipe-details .form-control:focus {
+  border-color: #D4AC0D;
+  outline: none;
+  box-shadow: 0 0 7px rgba(212, 172, 13, 0.5);
+}
+
+
+
+
+/* Difficulty Level */
+.difficulty-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+
+
+
+/* Enhanced Range Input Styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #ddd;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+
+
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #D4AC0D;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #D4AC0D;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 0;
+}
+
+
+
+
+/* Timer Container */
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Align items to the start */
+}
+
+
+
+
+.timer-container input[type="number"] {
+  width: 100%;
+  /* Make the input fields take the full row width */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+.timer-container input[type="number"]:focus {
+  border-color: #D4AC0D;
+  outline: none;
+  box-shadow: 0 0 7px rgba(212, 172, 13, 0.5);
+}
+
+
+
+
+/* Ingredients Section */
+.ingredients-section {
+  margin-top: 30px;
+}
+
+
+
+
+.ingredients-section .ingredient-input-group {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+
+
+
+.ingredients-section .ingredient-input-group input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+
+
+
+.ingredients-section .added-ingredients {
+  margin-top: 10px;
+}
+
+
+
+
+.ingredients-section .added-ingredient {
+  background: #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+.ingredients-section .added-ingredient:hover {
+  background-color: #e0e0e0;
+}
+
+
+
+
+.ingredients-section .added-ingredient .remove-ingredient {
+  color: #d33;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+
+
+.ingredients-section .added-ingredient .remove-ingredient:hover {
+  color: #ff4444;
+}
+
+
+
+
+/* Kitchen Essentials Section */
+.kitchen-essentials {
+  margin-top: 30px;
+}
+
+
+
+
+.kitchen-essentials .essentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+
+
+
+.kitchen-essentials .essential-item {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+.kitchen-essentials .essential-item label {
+  margin-left: 5px;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+
+
+
+.kitchen-essentials .essential-item label:hover {
+  color: #D4AC0D;
+}
+
+
+
+
+/* Tags Section */
+.tags-section {
+  margin-top: 30px;
+}
+
+
+
+
+.tags-section .tags-container {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+.tags-section .tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+
+
+
+.tags-section .tag {
+  background: #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #555;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+.tags-section .tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Footer Section */
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+
+
+
+.form-footer .status-select-wrapper {
+  flex: 1;
+  margin-right: 10px;
+}
+
+
+
+
+/* Attachment Styles */
+.attachment-wrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
+
+.attachment-wrapper .form-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  color: #555;
+  border-radius: 5px;
+  cursor: pointer;
+  background: none;
+  transition: color 0.3s ease;
+}
+
+
+
+
+.attachment-wrapper .form-label:hover {
+  color: #D4AC0D;
+}
+
+
+
+
+.attachment-wrapper .form-label i {
+  margin-left: 5px;
+}
+
+
+
+
+.form-footer .actions {
+  display: flex;
+  gap: 15px;
+}
+
+
+
+
+/* Buttons */
+.add-ingredient-button,
+.add-tag-button,
+.submit-button,
+.draft-button {
+  background-color: #38120a;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+.add-ingredient-button:hover,
+.add-tag-button:hover,
+.submit-button:hover,
+.draft-button:hover {
+  background-color: #C09100;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.draft-button {
+  background-color: #6c757d;
+}
+
+
+
+
+.draft-button:hover {
+  background-color: #5a6268;
+}
+
+
+
+
+/* Confirmation Message */
+.confirmation-message {
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  display: none;
+}
+
+
+
+
+.confirmation-message.draft {
+  background-color: rgba(128, 128, 128, 0.3);
+  color: #333;
+}
+
+
+
+
+.confirmation-message.public {
+  background-color: rgba(0, 128, 0, 0.3);
+  color: #333;
+}
+
+
+
+
+.confirmation-message.private {
+  background-color: rgba(0, 0, 255, 0.3);
+  color: #fff;
+}
+
+
+
+
+/* General Input Styles */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+
+
+
+.form-select {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+
+
+
+/* Add a touch of modern styling */
+.form-control:focus,
+.form-select:focus {
+  border-color: #D4AC0D;
+  outline: none;
+  box-shadow: 0 0 5px rgba(212, 172, 13, 0.3);
+}
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .main-container {
-   display: flex;
-   flex-direction: column;
-   min-height: 100vh;
-   background: url('../assets/cookingFormPic.png') no-repeat center center fixed;
-   background-size: cover;
-   padding: 100px;
-  }
-  
-  
-  
-  
-  /* Header Section */
-  .header-section {
-   background: linear-gradient(to right, rgba(255, 255, 255, 100),
-     rgba(245, 245, 245, 100));
-   background: url('/assets/pageBG.jpg');
-   padding: 20px;
-   border-radius: 10px;
-   text-align: center;
-   margin-bottom: 20px;
-   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-   transition: transform 0.3s ease;
-  }
-  
-  
-  
-  
-  .header-section:hover {
-   transform: translateY(-3px);
-  }
-  
-  
-  
-  
-  .recipe-title {
-   font-family: 'XPVosta';
-   font-weight: bold;
-   font-size: 3.5rem;
-   color: rgba(45, 9, 13, 0.905);
-   margin-bottom: 10px;
-  }
-  
-  
-  
-  
-  .subtitle {
-   font-size: 1.2rem;
-   color: #555;
-  }
-  
-  
-  
-  
-  /* Form Container */
-  .form-container {
-   background: rgba(255, 255, 255, 0.95);
-   border-radius: 15px;
-   padding: 30px;
-   box-shadow: 0 7px 15px rgba(0, 0, 0, 0.15);
-   margin-bottom: 20px;
-   flex: 1;
-   display: flex;
-   flex-direction: column;
-  }
-  
-  
-  
-  
-  /* Section Titles */
-  .section-title {
-    font-family: 'XPVosta';
-   font-size: 1.75rem;
-   font-family: 'Cairo', sans-serif;
-   font-weight: bold;
-   color: #000;
-   border-bottom: 2px solid #D4AC0D;
-   padding-bottom: 10px;
-   margin-bottom: 20px;
-  }
-  
-  
-  
-  
-  /* Recipe Details Section */
-  .recipe-details .form-group {
-   margin-bottom: 30px;
-  }
-  
-  
-  
-  
-  .recipe-details .form-label {
-   font-weight: normal;
-   color: #555;
-   display: block;
-   margin-bottom: 5px;
-  }
-  
-  
-  
-  
-  .recipe-details .form-control {
-   border-radius: 5px;
-   border: 1px solid #ccc;
-   padding: 10px;
-   font-size: 1rem;
-   width: 100%;
-   box-sizing: border-box;
-   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-   font-family: 'Cairo', sans-serif;
-   font-weight: normal;
-  }
-  
-  
-  
-  
-  .recipe-details .form-control:focus {
-   border-color: #D4AC0D;
-   outline: none;
-   box-shadow: 0 0 7px rgba(212, 172, 13, 0.5);
-  }
-  
-  
-  
-  
-  /* Difficulty Level */
-  .difficulty-labels {
-   display: flex;
-   justify-content: space-between;
-   color: #777;
-   font-size: 0.9rem;
-   margin-top: 5px;
-  }
-  
-  
-  
-  
-  /* Enhanced Range Input Styling */
-  input[type="range"] {
-   -webkit-appearance: none;
-   width: 100%;
-   height: 10px;
-   border-radius: 5px;
-   background: #ddd;
-   outline: none;
-   -webkit-transition: .2s;
-   transition: opacity .2s;
-  }
-  
-  
-  
-  
-  input[type="range"]::-webkit-slider-thumb {
-   -webkit-appearance: none;
-   appearance: none;
-   width: 20px;
-   height: 20px;
-   border-radius: 50%;
-   background: #D4AC0D;
-   cursor: pointer;
-   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  
-  
-  
-  input[type="range"]::-moz-range-thumb {
-   width: 20px;
-   height: 20px;
-   border-radius: 50%;
-   background: #D4AC0D;
-   cursor: pointer;
-   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-   border: 0;
-  }
-  
-  
-  
-  
-  /* Timer Container */
-  .timer-container {
-   display: flex;
-   align-items: center;
-   justify-content: flex-start;
-   /* Align items to the start */
-  }
-  
-  
-  
-  
-  .timer-container input[type="number"] {
-   width: 100%;
-   /* Make the input fields take the full row width */
-   padding: 8px;
-   border: 1px solid #ccc;
-   border-radius: 5px;
-   margin-right: 5px;
-   box-sizing: border-box;
-   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  
-  
-  
-  .timer-container input[type="number"]:focus {
-   border-color: #D4AC0D;
-   outline: none;
-   box-shadow: 0 0 7px rgba(212, 172, 13, 0.5);
-  }
-  
-  
-  
-  
-  /* Ingredients Section */
-  .ingredients-section {
-   margin-top: 30px;
-  }
-  
-  
-  
-  
-  .ingredients-section .ingredient-input-group {
-   display: flex;
-   margin-bottom: 10px;
-  }
-  
-  
-  
-  
-  .ingredients-section .ingredient-input-group input {
-   flex: 1;
-   margin-right: 10px;
-  }
-  
-  
-  
-  
-  .ingredients-section .added-ingredients {
-   margin-top: 10px;
-  }
-  
-  
-  
-  
-  .ingredients-section .added-ingredient {
-   background: #f0f0f0;
-   padding: 8px 12px;
-   border-radius: 5px;
-   margin-bottom: 5px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   transition: background-color 0.3s ease;
-  }
-  
-  
-  
-  
-  .ingredients-section .added-ingredient:hover {
-   background-color: #e0e0e0;
-  }
-  
-  
-  
-  
-  .ingredients-section .added-ingredient .remove-ingredient {
-   color: #d33;
-   cursor: pointer;
-   transition: color 0.3s ease;
-  }
-  
-  
-  
-  
-  .ingredients-section .added-ingredient .remove-ingredient:hover {
-   color: #ff4444;
-  }
-  
-  
-  
-  
-  /* Kitchen Essentials Section */
-  .kitchen-essentials {
-   margin-top: 30px;
-  }
-  
-  
-  
-  
-  .kitchen-essentials .essentials-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-   gap: 10px;
-  }
-  
-  
-  
-  
-  .kitchen-essentials .essential-item {
-   display: flex;
-   align-items: center;
-  }
-  
-  
-  
-  
-  .kitchen-essentials .essential-item label {
-   margin-left: 5px;
-   color: #555;
-   transition: color 0.3s ease;
-  }
-  
-  
-  
-  
-  .kitchen-essentials .essential-item label:hover {
-   color: #D4AC0D;
-  }
-  
-  
-  
-  
-  /* Tags Section */
-  .tags-section {
-   margin-top: 30px;
-  }
-  
-  
-  
-  
-  .tags-section .tags-container {
-   display: flex;
-   align-items: center;
-  }
-  
-  
-  
-  
-  .tags-section .tags-list {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 5px;
-   margin-top: 10px;
-  }
-  
-  
-  
-  
-  .tags-section .tag {
-   background: #ddd;
-   padding: 5px 10px;
-   border-radius: 5px;
-   color: #555;
-   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  
-  
-  
-  .tags-section .tag:hover {
-   transform: translateY(-2px);
-   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  
-  
-  /* Footer Section */
-  .form-footer {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-top: 50px;
-  }
-  
-  
-  
-  
-  .form-footer .status-select-wrapper {
-   flex: 1;
-   margin-right: 10px;
-  }
-  
-  
-  
-  
-  /* Attachment Styles */
-  .attachment-wrapper {
-   text-align: center;
-   margin-top: 10px;
-  }
-  
-  
-  
-  
-  .attachment-wrapper .form-label {
-   display: inline-flex;
-   align-items: center;
-   padding: 5px 10px;
-   color: #555;
-   border-radius: 5px;
-   cursor: pointer;
-   background: none;
-   transition: color 0.3s ease;
-  }
-  
-  
-  
-  
-  .attachment-wrapper .form-label:hover {
-   color: #D4AC0D;
-  }
-  
-  
-  
-  
-  .attachment-wrapper .form-label i {
-   margin-left: 5px;
-  }
-  
-  
-  
-  
-  .form-footer .actions {
-   display: flex;
-   gap: 15px;
-  }
-  
-  
-  
-  
-  /* Buttons */
-  .add-ingredient-button,
-  .add-tag-button,
-  .submit-button,
-  .draft-button {
-   background-color:  #38120a;
-   color: white;
-   border: none;
-   padding: 10px 15px;
-   border-radius: 5px;
-   cursor: pointer;
-   transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  
-  
-  
-  .add-ingredient-button:hover,
-  .add-tag-button:hover,
-  .submit-button:hover,
-  .draft-button:hover {
-   background-color: #C09100;
-   transform: translateY(-2px);
-   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  
-  
-  .draft-button {
-   background-color: #6c757d;
-  }
-  
-  
-  
-  
-  .draft-button:hover {
-   background-color: #5a6268;
-  }
-  
-  
-  
-  
-  /* Confirmation Message */
-  .confirmation-message {
-   padding: 15px;
-   border-radius: 5px;
-   margin-top: 20px;
-   text-align: center;
-   display: none;
-  }
-  
-  
-  
-  
-  .confirmation-message.draft {
-   background-color: rgba(128, 128, 128, 0.3);
-   color: #333;
-  }
-  
-  
-  
-  
-  .confirmation-message.public {
-   background-color: rgba(0, 128, 0, 0.3);
-   color: #333;
-  }
-  
-  
-  
-  
-  .confirmation-message.private {
-   background-color: rgba(0, 0, 255, 0.3);
-   color: #fff;
-  }
-  
-  
-  
-  
-  /* General Input Styles */
-  .form-control {
-   border-radius: 5px;
-   border: 1px solid #ccc;
-   padding: 10px;
-   font-size: 1rem;
-   width: 100%;
-   box-sizing: border-box;
-   transition: border-color 0.2s;
-  }
-  
-  
-  
-  
-  .form-select {
-   border-radius: 5px;
-   border: 1px solid #ccc;
-   padding: 10px;
-   font-size: 1rem;
-   width: 100%;
-   box-sizing: border-box;
-   transition: border-color 0.2s;
-  }
-  
-  
-  
-  
-  /* Add a touch of modern styling */
-  .form-control:focus,
-  .form-select:focus {
-   border-color: #D4AC0D;
-   outline: none;
-   box-shadow: 0 0 5px rgba(212, 172, 13, 0.3);
-  }
-  
-  
-  
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-   .main-container {
     padding: 10px;
-   }
-  
-  
-  
-  
-   .header-section {
+  }
+
+
+
+
+  .header-section {
     padding: 15px;
-   }
-  
-  
-  
-  
-   .recipe-title {
+  }
+
+
+
+
+  .recipe-title {
     font-size: 2.5rem;
-   }
-  
-  
-  
-  
-   .form-container {
+  }
+
+
+
+
+  .form-container {
     padding: 20px;
-   }
-  
-  
-  
-  
-   .form-footer {
+  }
+
+
+
+
+  .form-footer {
     flex-direction: column;
     align-items: stretch;
-   }
-  
-  
-  
-  
-   .form-footer .status-select-wrapper {
+  }
+
+
+
+
+  .form-footer .status-select-wrapper {
     margin-right: 0;
     margin-bottom: 10px;
-   }
-  
-  
-  
-  
-   .form-footer .actions {
+  }
+
+
+
+
+  .form-footer .actions {
     flex-direction: column;
     /* Changed to column */
     gap: 10px;
     /* Added gap between buttons */
     width: 100%;
     /* Make buttons full width */
-   }
-  
-  
-  
-  
-   .form-footer .actions button {
+  }
+
+
+
+
+  .form-footer .actions button {
     width: 100%;
     /* Make buttons full width */
     margin-left: 0;
     margin-top: 5px;
     box-sizing: border-box;
     /* Ensure padding doesn't affect width */
-   }
-  
-  
-  
-  
-   /* Navigation bar adjustments for small screens */
-   nav {
+  }
+
+
+
+
+  /* Navigation bar adjustments for small screens */
+  nav {
     padding: 5%;
     /* Increase padding for better touch area */
-   }
-  
-  
-  
-  
-   nav a {
+  }
+
+
+
+
+  nav a {
     font-size: 18px;
     /* Slightly reduce font size */
     padding: 10px 12px;
     /* Adjust padding */
-   }
-  
-  
-  
-  
-   .nav-split {
+  }
+
+
+
+
+  .nav-split {
     float: none;
     /* Remove float */
     margin-left: 0;
@@ -743,13 +743,13 @@
     /* Center the content */
     margin-bottom: 10px;
     /* Add some spacing */
-   }
-  
-  
-  
-  
-   .custom-button,
-   .custom-search {
+  }
+
+
+
+
+  .custom-button,
+  .custom-search {
     font-size: 14px;
     /* Reduce font size */
     padding: 6px 14px;
@@ -758,22 +758,22 @@
     /* Make them stack on top of each other */
     margin: 5px auto;
     /* Center them */
-   }
-  
-  
-  
-  
-   .custom-navbar img {
+  }
+
+
+
+
+  .custom-navbar img {
     float: none;
     /* Remove float */
     display: block;
     /* Make it a block element */
     margin: 0 auto;
     /* Center the image */
-   }
   }
-  
-  /* Recipe Steps Section */
+}
+
+/* Recipe Steps Section */
 .recipe-steps-section {
   margin-top: 30px;
 }
@@ -903,20 +903,20 @@
 
 @media (max-width: 768px) {
   #contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .contact img {
-      display: none;
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   #contact {
-      display: grid;
-      row-gap: 50px;
-      padding-top: 80px;
-      grid-template-columns: 1fr !important;
+    display: grid;
+    row-gap: 50px;
+    padding-top: 80px;
+    grid-template-columns: 1fr !important;
   }
 }
