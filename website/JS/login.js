@@ -20,7 +20,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
             window.location.href = response.url; // successful login
         } else {
             const text = await response.text();
-            alert(text); // shows "Invalid password." or other messages
+            alert(text); // shows "Invalid password"
         }
 
     } catch (err) {

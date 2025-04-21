@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from the 'website' folder
 app.use("/", express.static("./website"));
 
+
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
     connectionLimit: 10,
@@ -23,27 +24,39 @@ const pool = mysql.createPool({
 });
 
 
-// signin page
+// Signup page
 app.post("/signup", (req, res) => {
     const { firstName, lastName, phone, email, username, password } = req.body;
 
-    // Query to insert user data into the database
-    const query = "INSERT INTO users (first_name, last_name, phone_number, email, username, password_hash) VALUES (?, ?, ?, ?, ?, ?)";
-    const data = [firstName, lastName, phone, email, username, password];
-
-
-    pool.query(query, data, (error, result) => {
+    // Check if the username already exists
+    const checkQuery = "SELECT * FROM users WHERE username = ? OR email = ?";
+    pool.query(checkQuery, [username, email], (error, results) => {
         if (error) {
-            console.error("INSERT ERROR:", error);
-            return res.status(500).send("Failed to insert user data.");
+            console.error("DB ERROR:", error);
+            return res.status(500).send("Failed to check username or email.");
         }
 
-        res.redirect('/profile.html');
+        if (results.length > 0) {
+            // If username or email already exists
+            return res.status(400).json({ message: "Username or email already taken" });
+        }
+
+        // If username and email are unique, proceed with insert
+        const query = "INSERT INTO users (first_name, last_name, phone_number, email, username, password_hash) VALUES (?, ?, ?, ?, ?, ?)";
+        const data = [firstName, lastName, phone, email, username, password];
+
+        pool.query(query, data, (insertError, result) => {
+            if (insertError) {
+                console.error("INSERT ERROR:", insertError);
+                return res.status(500).send("Failed to insert user data.");
+            }
+
+            res.redirect('/profile.html');
+        });
     });
 });
 
-
-// For now, using plaintext password (not recommended for production)
+//login page
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
 
@@ -60,7 +73,6 @@ app.post("/login", (req, res) => {
 
         const user = results[0];
 
-        // If using plain text (not secure, just for testing)
         if (user.password_hash === password) {
             res.redirect("/profile.html");
         } else {
@@ -72,5 +84,5 @@ app.post("/login", (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-    console.log(`✅ Server is running on http://localhost:${port}`);
+    console.log(' Server is running on http://localhost:${port}');
 });
