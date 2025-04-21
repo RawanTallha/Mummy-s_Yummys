@@ -146,11 +146,16 @@ body {
     margin: 0;
     padding: 0;
     direction: rtl;
+    background-color: #458693;
 }
 
 .cards_item {
-    display: flex;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    list-style: none;
+    margin: 0px;
+    padding: 10px;
+    direction: rtl;
 }
 
 .card_image {

@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from the 'website' folder
 app.use("/", express.static("./website"));
 
+// Serve uploaded images from the 'uploads' folder
+app.use("/uploads", express.static("website/uploads"));
+
+
 
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
@@ -80,6 +84,32 @@ app.post("/login", (req, res) => {
         }
     });
 });
+
+// Recipie card
+app.get("/recipes", (req, res) => {
+    const query = `
+  SELECT r.name AS recipe_title, 
+         r.description, 
+         r.image_url,
+         u.username 
+  FROM Recipes r 
+  JOIN Users u ON r.user_id = u.user_id 
+  WHERE r.is_published = 1
+  ORDER BY r.created_at DESC
+  LIMIT 10
+`;
+
+
+    pool.query(query, (error, results) => {
+        if (error) {
+            console.error("DB ERROR:", error);
+            return res.status(500).send("Failed to fetch recipes.");
+        }
+
+        res.json(results); // send results to frontend
+    });
+});
+
 
 
 // Start the server
