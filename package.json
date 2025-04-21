@@ -13,5 +13,16 @@
     "express": "^5.1.0",
     "mysql2": "^3.14.0"
   },
+<<<<<<< HEAD
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RawanTallha/Mummy-s_Yummys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RawanTallha/Mummy-s_Yummys/issues"
+  },
+  "homepage": "https://github.com/RawanTallha/Mummy-s_Yummys#readme",
+=======
+>>>>>>> 7d5718a468cd51eda6ea6a3163d03ea00cc25120
   "description": ""
 }
