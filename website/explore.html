@@ -23,34 +23,7 @@
 
 <body>
 
-
-    <!-- Navbar -->
-    <nav class="custom-navbar">
-        <div class="nav-right">
-            <a href="#Home"><img src="assets/initial-logo.png" alt="Mummy's Yummy's logo"></a>
-        </div>
-
-
-        <div class="nav-center">
-            <a href="#Home-page">الرئيسية</a>
-            <a href="#Recipe-page">وصفات</a>
-            <a href="about-us.html">من نحن</a>
-            <a href="contact.html">تواصل معنا</a>
-        </div>
-
-
-        <div class="nav-left">
-            <div class="search-container">
-                <button class="custom-navbar-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-            <a href="login.html" class="custom-navbar-button">
-                <i class="fa-solid fa-user"></i>
-            </a>
-        </div>
-    </nav>
-
+    <div id="navbar"></div>
 
     <!-- Category Filter -->
     <div class="container mt-4">
@@ -213,50 +186,17 @@
         </div>
     </section>
 
+    <div id="footer"></div>
 
-    <footer id="contact" class="contact">
-        <div class="contact-browse">
-            <p class="contact-icons-header">تصفح</p>
-            <ul>
-                <li>
-                    <a href="#Home-page">الرئيسية</a>
-                </li>
-                <li>
-                    <a href="#Recipe-page">استكشف وصفاتنا</a>
-                </li>
-                <li>
-                    <a href="#Recipe-page">عن فريق وصفات امي</a>
-                </li>
-                <li>
-                    <a href="#Recipe-page">تواصل معنا</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="contact-icons">
-            <ul>
-                <li>
-                    <div class="contact-info-details">
-                        <a href="" target="_blank"><i class="fa-solid fa-phone"></i></a>
-                        <p>+966 538 280 093</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="contact-info-details">
-                        <a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-                        <p>Mummys-Yummys@gmail.com</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="contact-info-details">
-                        <a href="" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
-                        <p>F5PM+P4 Al-Balad, Jeddah</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <img src="assets/footer.png" alt="footer pic">
-    </footer>
+    <script>
+        fetch('navbar.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('navbar').innerHTML = data);
+    
+        fetch('footer.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('footer').innerHTML = data);
+      </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

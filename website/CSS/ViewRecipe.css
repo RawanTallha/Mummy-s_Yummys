@@ -1,100 +1,19 @@
-
 @font-face {
     font-family: 'XPVosta';
-    src: url('/fonts/XP-Vosta/XP-Vosta.ttf') format('truetype'); 
+    src: url('/fonts/XP-Vosta/XP-Vosta.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-/* General Styles */
-body {
-    font-family: 'Cairo', sans-serif;
-    background-image: url('/assets/cookingFormPic.png'); 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    background-color: #ffffff;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden;
-   }
-
-/* NAVBAR */
-nav {
-    direction: rtl;
-    text-align: right;
-    position: sticky;
-    top: 0;
-    background-color: rgba(255, 255, 255, 0.793);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    overflow-x: hidden;
-    white-space: nowrap;
-    scrollbar-width: none;
-    width: 100vw;
+* {
     box-sizing: border-box;
-    padding: 1px;
+    margin: 0;
+    padding: 0;
 }
 
-nav::-webkit-scrollbar {
-    display: none;
-}
-
-.nav-left {
-    display: flex;
-    gap: 0px;
-}
-
-.nav-center {
-    display: flex;
-    gap: 10px;
-    flex-grow: 1;
-    justify-content: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 15px 16px;
-    flex-shrink: 0;
-}
-
-nav a:hover {
-    color: rgb(182, 182, 182);
-}
-
-.custom-navbar img {
-    height: 40px;
-    flex-shrink: 0;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15px;
-}
-
-.custom-navbar-button {
-    display: flex;
-    font-size: 13px;
-    align-items: center;
-    color: white;
-    background-color: #51a0af;
-    border: 2px solid #111;
-    border-radius: 8px;
-    padding: 10px 15px;
-    width: 100%;
-    max-width: fit-content;
-    box-shadow: 4px 4px 0 #111;
-    transition: box-shadow 0.2s ease-out;
-}
-
-.custom-navbar-button:hover {
-    box-shadow: none;
+html,
+body {
+    overflow-x: hidden;
 }
 
 /* Main Container */
@@ -140,7 +59,7 @@ nav a:hover {
     color: rgba(45, 9, 13, 0.905);
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-   }
+}
 
 .subtitle {
     font-size: 1.2rem;
@@ -246,8 +165,9 @@ nav a:hover {
     max-width: 400px;
     box-shadow: 4px 4px 0 #111;
     transition: box-shadow 0.2s ease-out;
-    gap:10px
+    gap: 10px
 }
+
 .action-buttons button:hover {
     box-shadow: none;
 }
@@ -302,12 +222,12 @@ nav a:hover {
 }
 
 .comment-button {
-    background-color:#51a0af;  
+    background-color: #51a0af;
 }
 
 .save-button {
     background-color: rgba(45, 9, 13, 100);
-    
+
 }
 
 
