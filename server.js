@@ -22,18 +22,12 @@ const pool = mysql.createPool({
     port: 3307, // MAMP default port for MySQL
 });
 
-// INSERT route to add users to the table
+
 // signin page
 app.post("/signup", (req, res) => {
     const { firstName, lastName, phone, email, username, password } = req.body;
 
-    // Validation: Check if all required fields are present
-    if (!firstName || !lastName || !phone || !email || !username || !password) {
-        return res.status(400).send("All fields are required.");
-    }
-
     // Query to insert user data into the database
-    // const query = "INSERT INTO users (first_name, last_name, phone, email, username, password) VALUES (?, ?, ?, ?, ?, ?)";
     const query = "INSERT INTO users (first_name, last_name, phone_number, email, username, password_hash) VALUES (?, ?, ?, ?, ?, ?)";
     const data = [firstName, lastName, phone, email, username, password];
 
@@ -44,26 +38,36 @@ app.post("/signup", (req, res) => {
             return res.status(500).send("Failed to insert user data.");
         }
 
-        // res.send("User account created successfully!");
         res.redirect('/profile.html');
     });
 });
 
-// VIEW (SELECT) route to view users (optional for testing)
-app.get("/view", (req, res) => {
-    const query = "SELECT * FROM users";
 
-    pool.query(query, (error, results) => {
-        if (error) {
-            console.error("SELECT ERROR:", error);
-            return res.status(500).send("Failed to retrieve data.");
+// For now, using plaintext password (not recommended for production)
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+
+    const query = "SELECT * FROM users WHERE username = ?";
+    pool.query(query, [username], (err, results) => {
+        if (err) {
+            console.error("DB ERROR:", err);
+            return res.status(500).send("Database error.");
         }
 
-        res.json(results);
+        if (results.length === 0) {
+            return res.status(401).send("User not found.");
+        }
+
+        const user = results[0];
+
+        // If using plain text (not secure, just for testing)
+        if (user.password_hash === password) {
+            res.redirect("/profile.html");
+        } else {
+            res.status(401).send("Invalid password.");
+        }
     });
 });
-
-
 
 
 // Start the server
