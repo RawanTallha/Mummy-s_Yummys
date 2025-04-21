@@ -9,9 +9,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0",
     "mysql2": "^3.14.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RawanTallha/Mummy-s_Yummys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RawanTallha/Mummy-s_Yummys/issues"
+  },
+  "homepage": "https://github.com/RawanTallha/Mummy-s_Yummys#readme",
+  "description": ""
 }
