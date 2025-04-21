@@ -16,12 +16,11 @@
         <h1>انشاء حساب</h1>
         <p>لديك حساب؟ <a href="login.html">سجل الدخول</a></p>
         <hr>
-        <form action="profile.html">
 
-        <form id="signupForm" action="/signup" method="POST">
-            <!-- <div class="full-name">
-                <div><input type="text" name="first-name" placeholder="الاسم الاول" required></div>
-                <div><input type="text" name="last-name" placeholder="الاسم الاخير"></div>
+        <form name="signupForm" id="signupForm" action="/signup" method="POST" onsubmit="return validateForm()">
+            <div class="full-name">
+                <div><input type="text" name="firstName" placeholder="الاسم الاول" required></div>
+                <div><input type="text" name="lastName" placeholder="الاسم الاخير"></div>
             </div>
 
             <div><input type="tel" name="phone" placeholder="رقم الجوال" required minlength="10" maxlength="10"></div>
@@ -30,15 +29,7 @@
             <div><input type="password" name="password" placeholder="كلمة المرور" required></div>
             <div><input type="checkbox" id="terms" required>
                 <label for="terms">اوافق على <a href="">الشروط و الاحكام</a></label>
-            </div> -->
-            <input type="text" name="firstName" placeholder="الاسم الاول" required>
-            <input type="text" name="lastName" placeholder="الاسم الاخير">
-            <input type="tel" name="phone" placeholder="رقم الجوال" required>
-            <input type="email" name="email" placeholder="البريد الالكتروني">
-            <input type="text" name="username" placeholder="اسم المستخدم" required>
-            <input type="password" name="password" placeholder="كلمة المرور" required>
-            <input type="checkbox" name="terms" required>
-            
+            </div>
 
             <div><button type="submit">انشئ حساب</button></div>
 
