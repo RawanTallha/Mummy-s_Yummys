@@ -3,7 +3,6 @@ const express = require("express");
 const mysql = require("mysql2");
 
 const app = express();
-const port = 3000;
 
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
@@ -24,6 +23,7 @@ const pool = mysql.createPool({
     user: "root",
     password: "root",
     database: "mummys_yummys", // Replace with your actual database name
+    //hams's port : port: 3306,
     port: 3307, // MAMP default port for MySQL
 });
 
@@ -114,5 +114,5 @@ app.get("/recipes", (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-    console.log(' Server is running on http://localhost:${port}');
+    console.log(' Server is running on http://localhost:3000');
 });

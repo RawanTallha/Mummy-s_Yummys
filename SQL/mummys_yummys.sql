@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Apr 20, 2025 at 02:29 PM
+-- Generation Time: Apr 22, 2025 at 09:12 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -66,7 +66,25 @@ INSERT INTO `ingredients` (`ingredient_id`, `name`) VALUES
 (4, 'حليب'),
 (5, 'سكر'),
 (6, 'نشا'),
-(7, 'فستق حلبي');
+(7, 'فستق حلبي'),
+(8, 'باذنجان'),
+(9, 'أرز'),
+(10, 'لحم مفروم'),
+(11, 'عدس'),
+(12, 'بصل'),
+(13, 'طماطم'),
+(14, 'خس'),
+(15, 'خيار'),
+(16, 'تمر'),
+(17, 'طحين'),
+(18, 'أرز بارد'),
+(19, 'بصل أخضر'),
+(20, 'بيضة'),
+(21, 'ثوم'),
+(22, 'صلصة الصويا'),
+(23, 'شاي أسود'),
+(24, 'سكر'),
+(25, 'ثلج');
 
 -- --------------------------------------------------------
 
@@ -104,16 +122,23 @@ CREATE TABLE `recipes` (
   `time_to_make` int(11) DEFAULT NULL,
   `is_published` tinyint(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
+  `updated_at` datetime DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `recipes`
 --
 
-INSERT INTO `recipes` (`recipe_id`, `user_id`, `name`, `description`, `type`, `level`, `time_to_make`, `is_published`, `created_at`, `updated_at`) VALUES
-(1, 1, 'كبسة الدجاج', 'وصفة شهية ومليئة بالنكهات الخليجية.', 'طبق رئيسي', 'متوسط', 90, 1, '2025-04-20 14:25:34', '2025-04-20 14:25:34'),
-(2, 2, 'مهلبية بالفستق', 'تحلية باردة ولذيذة مثالية للصيف.', 'تحلية', 'سهل', 30, 1, '2025-04-20 14:25:34', '2025-04-20 14:25:34');
+INSERT INTO `recipes` (`recipe_id`, `user_id`, `name`, `description`, `type`, `level`, `time_to_make`, `is_published`, `created_at`, `updated_at`, `image_url`) VALUES
+(1, 1, 'كبسة الدجاج', 'وصفة شهية ومليئة بالنكهات الخليجية.', 'طبق رئيسي', 'متوسط', 90, 1, '2025-04-20 14:25:34', '2025-04-20 14:25:34', 'uploads/kabsa.jpg'),
+(2, 2, 'مهلبية بالفستق', 'تحلية باردة ولذيذة مثالية للصيف.', 'تحلية', 'سهل', 30, 1, '2025-04-20 14:25:34', '2025-04-20 14:25:34', 'uploads/muhallabia.jpg'),
+(3, 3, 'مقلوبة الباذنجان', 'وجبة فلسطينية تقليدية مليئة بالنكهات.', 'طبق رئيسي', 'متقدم', 80, 1, '2025-04-21 20:25:48', '2025-04-21 20:25:48', 'uploads/maqluba.jpg'),
+(4, 4, 'شوربة العدس', 'شوربة صحية ولذيذة مثالية لأيام الشتاء.', 'شوربة', 'سهل', 25, 1, '2025-04-21 20:25:48', '2025-04-21 20:25:48', 'uploads/lentil_soup.jpg'),
+(5, 5, 'سلطة الفتوش', 'سلطة شامية منعشة تحتوي على خضروات طازجة.', 'سلطة', 'سهل', 15, 1, '2025-04-21 20:25:48', '2025-04-21 20:25:48', 'uploads/fattoush.jpg'),
+(6, 3, 'كيكة التمر', 'كيكة لذيذة محلاة بالتمر ومناسبة مع الشاي.', 'تحلية', 'متوسط', 50, 1, '2025-04-21 20:25:48', '2025-04-21 20:25:48', 'uploads/date_cake.jpg'),
+(7, 1, 'رز مقلي اندونيسي', 'أشهر أطباق الأرز المقلي في إندونيسيا، يتميز بنكهات غنية من الصويا والثوم والتوابل.', 'طبق رئيسي', 'سهل', 30, 1, '2025-04-21 20:48:42', '2025-04-21 20:48:42', 'uploads/nasi_goreng.jpeg'),
+(8, 2, 'شاي بارد', 'مشروب منعش من الشاي الحلو المثلج.', 'مشروب', 'سهل', 10, 1, '2025-04-21 20:48:42', '2025-04-21 20:48:42', 'uploads/iced_tea.jpeg');
 
 -- --------------------------------------------------------
 
@@ -138,7 +163,25 @@ INSERT INTO `recipe_ingredients` (`recipe_id`, `ingredient_id`, `quantity`) VALU
 (2, 4, '3 أكواب'),
 (2, 5, 'نصف كوب'),
 (2, 6, '3 ملاعق كبيرة'),
-(2, 7, 'ربع كوب');
+(2, 7, 'ربع كوب'),
+(3, 1, '2 باذنجان متوسط'),
+(3, 2, '2 كوب أرز'),
+(3, 3, '200 جم لحم'),
+(4, 4, '1 كوب'),
+(4, 5, '1 بصلة مفرومة'),
+(4, 6, '1 طماطم'),
+(5, 7, '1 كوب'),
+(5, 8, '1 خيار مقطع'),
+(6, 9, '1 كوب تمر مهروس'),
+(6, 10, '2 كوب طحين'),
+(7, 1, '2 كوب أرز بارد'),
+(7, 2, '2 ملعقة كبيرة بصل أخضر مفروم'),
+(7, 3, '1 بيضة'),
+(7, 4, '2 فص ثوم مهروس'),
+(7, 5, '2 ملعقة كبيرة صلصة صويا'),
+(8, 6, '1 كيس شاي'),
+(8, 7, '2 ملعقة كبيرة سكر'),
+(8, 8, 'كوب ثلج');
 
 -- --------------------------------------------------------
 
@@ -178,9 +221,15 @@ CREATE TABLE `recipe_tools` (
 
 INSERT INTO `recipe_tools` (`recipe_id`, `tool_id`) VALUES
 (1, 1),
+(4, 1),
+(6, 1),
 (1, 2),
 (2, 2),
-(2, 3);
+(3, 2),
+(2, 3),
+(6, 4),
+(3, 5),
+(5, 5);
 
 -- --------------------------------------------------------
 
@@ -226,7 +275,25 @@ INSERT INTO `steps` (`step_id`, `recipe_id`, `step_number`, `instruction`) VALUE
 (4, 2, 1, 'اخلط الحليب مع النشا والسكر.'),
 (5, 2, 2, 'ضع الخليط على النار وحرّك حتى يتماسك.'),
 (6, 2, 3, 'صب المهلبية في الأكواب وضعها في الثلاجة.'),
-(7, 2, 4, 'زيّنها بالفستق المطحون قبل التقديم.');
+(7, 2, 4, 'زيّنها بالفستق المطحون قبل التقديم.'),
+(8, 3, 1, 'قلّي الباذنجان حتى يكتسب لوناً ذهبياً.'),
+(9, 3, 2, 'اطبخ اللحم مع التوابل.'),
+(10, 3, 3, 'رتب المكونات في قدر واطبخها مع الأرز.'),
+(11, 4, 1, 'اغسل العدس جيداً.'),
+(12, 4, 2, 'اقلي البصل، ثم أضف العدس والماء.'),
+(13, 4, 3, 'اتركه يغلي حتى ينضج العدس.'),
+(14, 5, 1, 'اخلط الخضروات في صحن.'),
+(15, 5, 2, 'أضف عصير ليمون وزيت زيتون.'),
+(16, 6, 1, 'اخلط التمر مع الماء الدافئ.'),
+(17, 6, 2, 'أضف الطحين والمكونات الأخرى.'),
+(18, 6, 3, 'اخبز الكيكة لمدة 30 دقيقة.'),
+(19, 7, 1, 'سخن الزيت واقلي الثوم حتى تفوح رائحته.'),
+(20, 7, 2, 'أضف البيض واطبخه كأومليت، ثم قطّعه.'),
+(21, 7, 3, 'أضف الأرز وصلصة الصويا وقلّب جيدًا.'),
+(22, 7, 4, 'أضف البصل الأخضر وقطع البيض واطبخ لمدة دقيقة.'),
+(23, 8, 1, 'انقع كيس الشاي في ماء ساخن لمدة 5 دقائق.'),
+(24, 8, 2, 'أضف السكر وحرك جيدًا حتى يذوب.'),
+(25, 8, 3, 'صب الشاي فوق الثلج وقدمه فورًا.');
 
 -- --------------------------------------------------------
 
@@ -268,7 +335,12 @@ CREATE TABLE `tools` (
 INSERT INTO `tools` (`tool_id`, `name`) VALUES
 (1, 'قدر'),
 (2, 'ملعقة خشب'),
-(3, 'ثلاجة');
+(3, 'ثلاجة'),
+(4, 'فرن'),
+(5, 'قدر ضغط'),
+(6, 'مقلاة'),
+(7, 'خلاط'),
+(8, 'صحن تقديم');
 
 -- --------------------------------------------------------
 
@@ -296,7 +368,10 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `phone_number`, `emai
 (2, 'ريتال', 'هشام', '0566349506', 'rital@gmail.com', 'tata3', '333', NULL),
 (3, 'همس', 'عسيري', '0562946271', 'hams@gmail.com', 'hamsassiri', '123', NULL),
 (4, 'أحمد', 'الشمري', '0551234567', 'ahmad@example.com', 'ahmad_chef', '1234', NULL),
-(5, 'ليلى', 'الخطيب', '0557654321', 'layla@example.com', 'layla_kitchen', '1234', NULL);
+(5, 'ليلى', 'الخطيب', '0557654321', 'layla@example.com', 'layla_kitchen', '1234', NULL),
+(6, 'سارة', 'المالكي', '0551122334', 'sara@example.com', 'sara_homecooking', '1234', NULL),
+(7, 'خالد', 'الغامدي', '0554455667', 'khaled@example.com', 'chef_khaled', '1234', NULL),
+(8, 'نجوى', 'الأنصاري', '0557788991', 'najwa@example.com', 'najwas_kitchen', '1234', NULL);
 
 --
 -- Indexes for dumped tables
@@ -397,19 +472,19 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `steps`
 --
 ALTER TABLE `steps`
-  MODIFY `step_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `step_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tags`
@@ -421,13 +496,13 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `tools`
 --
 ALTER TABLE `tools`
-  MODIFY `tool_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `tool_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
