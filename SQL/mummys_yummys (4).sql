@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Apr 23, 2025 at 10:26 PM
+-- Generation Time: Apr 24, 2025 at 12:46 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -245,8 +245,14 @@ CREATE TABLE `recipe_tags` (
 INSERT INTO `recipe_tags` (`recipe_id`, `tag_id`) VALUES
 (1, 1),
 (2, 2),
+(3, 2),
+(7, 2),
+(8, 3),
 (1, 4),
-(2, 5);
+(5, 4),
+(2, 5),
+(6, 5),
+(4, 6);
 
 -- --------------------------------------------------------
 
@@ -265,15 +271,36 @@ CREATE TABLE `recipe_tools` (
 
 INSERT INTO `recipe_tools` (`recipe_id`, `tool_id`) VALUES
 (1, 1),
+(3, 1),
 (4, 1),
 (6, 1),
+(7, 1),
 (1, 2),
 (2, 2),
-(3, 2),
+(4, 2),
+(6, 2),
+(7, 2),
 (2, 3),
+(5, 3),
+(8, 3),
 (6, 4),
-(3, 5),
-(5, 5);
+(4, 5),
+(5, 5),
+(5, 6),
+(7, 6),
+(4, 7),
+(3, 8),
+(5, 8),
+(4, 9),
+(5, 10),
+(7, 10),
+(3, 11),
+(7, 11),
+(5, 12),
+(6, 13),
+(6, 14),
+(8, 14),
+(6, 15);
 
 -- --------------------------------------------------------
 
@@ -355,11 +382,12 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`tag_id`, `name`) VALUES
-(1, 'رمضاني'),
-(2, 'سريع'),
-(3, 'صحي'),
-(4, 'خليجي'),
-(5, 'تحلية');
+(1, 'مقبلات'),
+(2, 'طبق رئيسي'),
+(3, 'مشروب'),
+(4, 'سلطة'),
+(5, 'تحلية'),
+(6, 'شربة');
 
 -- --------------------------------------------------------
 
@@ -384,7 +412,14 @@ INSERT INTO `tools` (`tool_id`, `name`) VALUES
 (5, 'قدر ضغط'),
 (6, 'مقلاة'),
 (7, 'خلاط'),
-(8, 'صحن تقديم');
+(8, 'صحن تقديم'),
+(9, 'مصفاة'),
+(10, 'سكين'),
+(11, 'ملعقة تقديم'),
+(12, 'مبشرة'),
+(13, 'صينية'),
+(14, 'كوب قياس'),
+(15, 'خفاق يدوي');
 
 -- --------------------------------------------------------
 
@@ -522,13 +557,13 @@ ALTER TABLE `steps`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tools`
 --
 ALTER TABLE `tools`
-  MODIFY `tool_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `tool_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`

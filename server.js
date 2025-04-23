@@ -14,8 +14,6 @@ app.use("/", express.static("./website"));
 // Serve uploaded images from the 'uploads' folder
 app.use("/uploads", express.static("website/uploads"));
 
-
-
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
     connectionLimit: 10,
@@ -23,10 +21,11 @@ const pool = mysql.createPool({
     user: "root",
     password: "root",
     database: "mummys_yummys", // Replace with your actual database name
-    //hams's port : port: 3306,
     port: 3307, // MAMP default port for MySQL
 });
 
+// Define port (add this line)
+const port = process.env.PORT || 3000; // Default to 3000 if no PORT is set
 
 // Signup page
 app.post("/signup", (req, res) => {
@@ -60,7 +59,7 @@ app.post("/signup", (req, res) => {
   });
 });
 
-//login page
+// Login page
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
 
@@ -85,7 +84,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-// Recipie card
+// Recipe card
 app.get("/recipes", (req, res) => {
   const query = `
   SELECT r.recipe_id,
@@ -109,7 +108,6 @@ app.get("/recipes", (req, res) => {
     res.json(results); // send results to frontend
   });
 });
-
 
 // ViewRecipe page
 app.get("/recipe/:id", (req, res) => {
@@ -146,10 +144,9 @@ app.get("/recipe/:id", (req, res) => {
     // Step 2: Fetch ingredients
     const ingredientQuery = `
         SELECT ri.ingredient AS ingredient, ri.quantity
-FROM Recipe_Ingredients ri
-WHERE ri.recipe_id = ?
-
-      `;
+        FROM Recipe_Ingredients ri
+        WHERE ri.recipe_id = ?
+    `;
 
     pool.query(ingredientQuery, [recipeId], (err1, ingredients) => {
       if (err1) return res.status(500).send("Failed to fetch ingredients.");
@@ -204,9 +201,7 @@ WHERE ri.recipe_id = ?
   });
 });
 
-
-
 // Start the server
 app.listen(port, () => {
-  console.log(' Server is running on http://localhost:3000');
+  console.log(`Server is running on http://localhost:${port}`);
 });
