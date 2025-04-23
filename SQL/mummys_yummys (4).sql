@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Apr 22, 2025 at 09:12 PM
+-- Generation Time: Apr 24, 2025 at 12:46 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -47,24 +47,24 @@ INSERT INTO `contact_us` (`contact_id`, `name`, `email`, `phone_number`, `messag
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingredients`
+-- Table structure for table `ingredients_backup`
 --
 
-CREATE TABLE `ingredients` (
-  `ingredient_id` int(11) NOT NULL,
+CREATE TABLE `ingredients_backup` (
+  `ingredient_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ingredients`
+-- Dumping data for table `ingredients_backup`
 --
 
-INSERT INTO `ingredients` (`ingredient_id`, `name`) VALUES
+INSERT INTO `ingredients_backup` (`ingredient_id`, `name`) VALUES
 (1, 'أرز'),
 (2, 'دجاج'),
 (3, 'بهارات كبسة'),
 (4, 'حليب'),
-(5, 'سكر'),
+(5, 'صلصة صويا'),
 (6, 'نشا'),
 (7, 'فستق حلبي'),
 (8, 'باذنجان'),
@@ -137,7 +137,7 @@ INSERT INTO `recipes` (`recipe_id`, `user_id`, `name`, `description`, `type`, `l
 (4, 4, 'شوربة العدس', 'شوربة صحية ولذيذة مثالية لأيام الشتاء.', 'شوربة', 'سهل', 25, 1, '2025-04-21 20:25:48', '2025-04-21 20:25:48', 'uploads/lentil_soup.jpg'),
 (5, 5, 'سلطة الفتوش', 'سلطة شامية منعشة تحتوي على خضروات طازجة.', 'سلطة', 'سهل', 15, 1, '2025-04-21 20:25:48', '2025-04-21 20:25:48', 'uploads/fattoush.jpg'),
 (6, 3, 'كيكة التمر', 'كيكة لذيذة محلاة بالتمر ومناسبة مع الشاي.', 'تحلية', 'متوسط', 50, 1, '2025-04-21 20:25:48', '2025-04-21 20:25:48', 'uploads/date_cake.jpg'),
-(7, 1, 'رز مقلي اندونيسي', 'أشهر أطباق الأرز المقلي في إندونيسيا، يتميز بنكهات غنية من الصويا والثوم والتوابل.', 'طبق رئيسي', 'سهل', 30, 1, '2025-04-21 20:48:42', '2025-04-21 20:48:42', 'uploads/nasi_goreng.jpeg'),
+(7, 1, 'رز مقلي اندونيسي', 'أشهر و الذ أطباق الأرز المقلي في إندونيسيا، يتميز بنكهات غنية من الصويا والثوم والتوابل.', 'طبق رئيسي', 'سهل', 30, 1, '2025-04-21 20:48:42', '2025-04-21 20:48:42', 'uploads/nasi_goreng.jpeg'),
 (8, 2, 'شاي بارد', 'مشروب منعش من الشاي الحلو المثلج.', 'مشروب', 'سهل', 10, 1, '2025-04-21 20:48:42', '2025-04-21 20:48:42', 'uploads/iced_tea.jpeg');
 
 -- --------------------------------------------------------
@@ -149,14 +149,58 @@ INSERT INTO `recipes` (`recipe_id`, `user_id`, `name`, `description`, `type`, `l
 CREATE TABLE `recipe_ingredients` (
   `recipe_id` int(11) NOT NULL,
   `ingredient_id` int(11) NOT NULL,
-  `quantity` varchar(100) DEFAULT NULL
+  `quantity` varchar(100) DEFAULT NULL,
+  `ingredient` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `recipe_ingredients`
 --
 
-INSERT INTO `recipe_ingredients` (`recipe_id`, `ingredient_id`, `quantity`) VALUES
+INSERT INTO `recipe_ingredients` (`recipe_id`, `ingredient_id`, `quantity`, `ingredient`) VALUES
+(1, 1, '2 كوب', 'ارز'),
+(1, 2, '1 دجاجة', '1 دجاجة'),
+(1, 3, '1 ملعقة كبيرة', 'بهارات كبسه'),
+(2, 4, '3 أكواب', 'حليب'),
+(2, 5, 'نصف كوب', 'سكر'),
+(2, 6, '3 ملاعق كبيرة', 'نشا'),
+(2, 7, 'ربع كوب', 'ربع كوب فستق حلبي'),
+(3, 1, '2 باذنجان متوسط', '2 باذنجان متوسط'),
+(3, 2, '2 كوب ', 'ارز'),
+(3, 3, '200 جم لحم', '200 جم لحم'),
+(4, 4, '1 كوب', 'حليب'),
+(4, 5, '1', 'بصلة مفرومة'),
+(4, 6, '1 طماطم', '1 طماطم'),
+(5, 7, '1 كوب', '1 طماطم مقطعة'),
+(5, 8, '1 خيار مقطع', '1 خيار مقطع'),
+(6, 9, '1 كوب تمر مهروس', '1 كوب تمر مهروس'),
+(6, 10, '2 كوب طحين', '2 كوب طحين'),
+(7, 1, '2 كوب', 'ارز'),
+(7, 2, '1 ملعقة كبيرة', 'سامبال'),
+(7, 3, '1 بيضة', '1 بيضة'),
+(7, 4, '2 فص ثوم مهروس', '2 فص ثوم مهروس'),
+(7, 5, '2 ملعقة كبيرة صلصة صويا', '2 ملعقة كبيرة صلصة صويا'),
+(8, 6, '1 كيس شاي', '1 كيس شاي'),
+(8, 7, '2 ملعقة كبيرة سكر', '2 ملعقة كبيرة سكر'),
+(8, 8, 'كوب', 'ثلج');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recipe_ingredients_backup`
+--
+
+CREATE TABLE `recipe_ingredients_backup` (
+  `recipe_id` int(11) NOT NULL,
+  `ingredient_id` int(11) NOT NULL,
+  `quantity` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `recipe_ingredients_backup`
+--
+
+INSERT INTO `recipe_ingredients_backup` (`recipe_id`, `ingredient_id`, `quantity`) VALUES
 (1, 1, '2 كوب'),
 (1, 2, '1 دجاجة'),
 (1, 3, '1 ملعقة كبيرة'),
@@ -165,7 +209,7 @@ INSERT INTO `recipe_ingredients` (`recipe_id`, `ingredient_id`, `quantity`) VALU
 (2, 6, '3 ملاعق كبيرة'),
 (2, 7, 'ربع كوب'),
 (3, 1, '2 باذنجان متوسط'),
-(3, 2, '2 كوب أرز'),
+(3, 2, '2 كوب '),
 (3, 3, '200 جم لحم'),
 (4, 4, '1 كوب'),
 (4, 5, '1 بصلة مفرومة'),
@@ -174,8 +218,8 @@ INSERT INTO `recipe_ingredients` (`recipe_id`, `ingredient_id`, `quantity`) VALU
 (5, 8, '1 خيار مقطع'),
 (6, 9, '1 كوب تمر مهروس'),
 (6, 10, '2 كوب طحين'),
-(7, 1, '2 كوب أرز بارد'),
-(7, 2, '2 ملعقة كبيرة بصل أخضر مفروم'),
+(7, 1, '2 كوب'),
+(7, 2, '2 ملعقة كبيرة'),
 (7, 3, '1 بيضة'),
 (7, 4, '2 فص ثوم مهروس'),
 (7, 5, '2 ملعقة كبيرة صلصة صويا'),
@@ -201,8 +245,14 @@ CREATE TABLE `recipe_tags` (
 INSERT INTO `recipe_tags` (`recipe_id`, `tag_id`) VALUES
 (1, 1),
 (2, 2),
+(3, 2),
+(7, 2),
+(8, 3),
 (1, 4),
-(2, 5);
+(5, 4),
+(2, 5),
+(6, 5),
+(4, 6);
 
 -- --------------------------------------------------------
 
@@ -221,15 +271,36 @@ CREATE TABLE `recipe_tools` (
 
 INSERT INTO `recipe_tools` (`recipe_id`, `tool_id`) VALUES
 (1, 1),
+(3, 1),
 (4, 1),
 (6, 1),
+(7, 1),
 (1, 2),
 (2, 2),
-(3, 2),
+(4, 2),
+(6, 2),
+(7, 2),
 (2, 3),
+(5, 3),
+(8, 3),
 (6, 4),
-(3, 5),
-(5, 5);
+(4, 5),
+(5, 5),
+(5, 6),
+(7, 6),
+(4, 7),
+(3, 8),
+(5, 8),
+(4, 9),
+(5, 10),
+(7, 10),
+(3, 11),
+(7, 11),
+(5, 12),
+(6, 13),
+(6, 14),
+(8, 14),
+(6, 15);
 
 -- --------------------------------------------------------
 
@@ -311,11 +382,12 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`tag_id`, `name`) VALUES
-(1, 'رمضاني'),
-(2, 'سريع'),
-(3, 'صحي'),
-(4, 'خليجي'),
-(5, 'تحلية');
+(1, 'مقبلات'),
+(2, 'طبق رئيسي'),
+(3, 'مشروب'),
+(4, 'سلطة'),
+(5, 'تحلية'),
+(6, 'شربة');
 
 -- --------------------------------------------------------
 
@@ -340,7 +412,14 @@ INSERT INTO `tools` (`tool_id`, `name`) VALUES
 (5, 'قدر ضغط'),
 (6, 'مقلاة'),
 (7, 'خلاط'),
-(8, 'صحن تقديم');
+(8, 'صحن تقديم'),
+(9, 'مصفاة'),
+(10, 'سكين'),
+(11, 'ملعقة تقديم'),
+(12, 'مبشرة'),
+(13, 'صينية'),
+(14, 'كوب قياس'),
+(15, 'خفاق يدوي');
 
 -- --------------------------------------------------------
 
@@ -382,12 +461,6 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `phone_number`, `emai
 --
 ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`contact_id`);
-
---
--- Indexes for table `ingredients`
---
-ALTER TABLE `ingredients`
-  ADD PRIMARY KEY (`ingredient_id`);
 
 --
 -- Indexes for table `likes`
@@ -469,12 +542,6 @@ ALTER TABLE `contact_us`
   MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `ingredients`
---
-ALTER TABLE `ingredients`
-  MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
@@ -490,13 +557,13 @@ ALTER TABLE `steps`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tools`
 --
 ALTER TABLE `tools`
-  MODIFY `tool_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `tool_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -525,8 +592,7 @@ ALTER TABLE `recipes`
 -- Constraints for table `recipe_ingredients`
 --
 ALTER TABLE `recipe_ingredients`
-  ADD CONSTRAINT `recipe_ingredients_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`),
-  ADD CONSTRAINT `recipe_ingredients_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`ingredient_id`);
+  ADD CONSTRAINT `recipe_ingredients_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`);
 
 --
 -- Constraints for table `recipe_tags`
