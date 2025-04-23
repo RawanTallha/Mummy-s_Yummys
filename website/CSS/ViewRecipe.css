@@ -14,6 +14,7 @@
 html,
 body {
     overflow-x: hidden;
+    background-color: #fffaf1;
 }
 
 /* Main Container */
@@ -30,16 +31,20 @@ body {
 
 /* Recipe Image */
 .recipe-image {
-    margin-bottom: 20px;
-    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-color: #38120a;
 }
 
 .recipe-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    object-position: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid #D4AC0D;
 }
 
 /* Header Section */
