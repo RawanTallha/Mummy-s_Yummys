@@ -86,6 +86,11 @@ if (recipeId) {
 
             document.querySelector("#moreSteps .card-body ol").innerHTML =
                 extraSteps.map(step => `<li>${step}</li>`).join("");
+
+            // TAGS
+            const tagSection = document.querySelector(".tags");
+            tagSection.innerHTML = `<h2>هـــاشــتـاقـات</h2>` +
+                data.tags.map(tag => `<span class="tag">#${tag}</span>`).join("");
         })
         // .catch(err => {
         //     console.error("Error loading recipe:", err);
@@ -95,9 +100,5 @@ if (recipeId) {
             alert("An error occurred while loading the recipe.");
         });
 
-    // TAGS
-    const tagSection = document.querySelector(".tags");
-    tagSection.innerHTML = `<h2>هـــاشــتـاقـات</h2>` +
-        data.tags.map(tag => `<span class="tag">#${tag}</span>`).join("");
 
 }
