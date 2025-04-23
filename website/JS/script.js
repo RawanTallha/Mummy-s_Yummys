@@ -1,24 +1,24 @@
 fetch('navbar.html')
-            .then(res => res.text())
-            .then(data => document.getElementById('navbar').innerHTML = data);
+  .then(res => res.text())
+  .then(data => document.getElementById('navbar').innerHTML = data);
 
-        fetch('footer.html')
-            .then(res => res.text())
-            .then(data => document.getElementById('footer').innerHTML = data);
+fetch('footer.html')
+  .then(res => res.text())
+  .then(data => document.getElementById('footer').innerHTML = data);
 
-        // Load recipes dynamically
-        fetch("http://localhost:3000/recipes")
-            .then((response) => response.json())
-            .then((data) => {
-                const recipeList = document.getElementById("recipe-list");
+// Load recipes dynamically
+fetch("http://localhost:3000/recipes")
+  .then((response) => response.json())
+  .then((data) => {
+    const recipeList = document.getElementById("recipe-list");
 
-                data.forEach((item) => { // all items
-                // data.slice(0, 2).forEach((item) => {
-                    const shortDescription = item.description.length > 50
-                        ? item.description.substring(0, 50) + "..."
-                        : item.description;
+    // data.forEach((item) => { // all items
+      data.slice(0, 2).forEach((item) => {
+      const shortDescription = item.description.length > 50
+        ? item.description.substring(0, 50) + "..."
+        : item.description;
 
-                    const card = `
+      const card = `
   <li class="cards_item">
     <div class="card">
       <div class="card_image">
@@ -38,10 +38,10 @@ fetch('navbar.html')
   </li>
 `;
 
-                    recipeList.insertAdjacentHTML("beforeend", card);
+      recipeList.insertAdjacentHTML("beforeend", card);
 
-                });
-                const moreCard = `
+    });
+    const moreCard = `
   <li class="cards_item">
     <div class="card">
       <div class="card_content">
@@ -58,9 +58,9 @@ fetch('navbar.html')
   </li>
 `;
 
-                recipeList.insertAdjacentHTML("beforeend", moreCard);
+    recipeList.insertAdjacentHTML("beforeend", moreCard);
 
-            })
-            .catch((error) => {
-                console.error("Error loading recipes:", error);
-            });
+  })
+  .catch((error) => {
+    console.error("Error loading recipes:", error);
+  });

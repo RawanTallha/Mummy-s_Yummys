@@ -85,13 +85,38 @@ app.post("/login", (req, res) => {
 });
 
 // Recipe card
+// app.get("/recipes", (req, res) => {
+//   const query = `
+//   SELECT r.recipe_id,
+//          r.name AS recipe_title, 
+//          r.description, 
+//          r.image_url,
+//          u.username 
+//   FROM Recipes r 
+//   JOIN Users u ON r.user_id = u.user_id 
+//   WHERE r.is_published = 1
+//   ORDER BY r.created_at DESC
+//   LIMIT 10
+// `;
+
+//   pool.query(query, (error, results) => {
+//     if (error) {
+//       console.error("DB ERROR:", error);
+//       return res.status(500).send("Failed to fetch recipes.");
+//     }
+
+//     res.json(results); // send results to frontend
+//   });
+// });
+// Recipe card
 app.get("/recipes", (req, res) => {
   const query = `
   SELECT r.recipe_id,
          r.name AS recipe_title, 
          r.description, 
          r.image_url,
-         u.username 
+         u.first_name,
+         u.last_name
   FROM Recipes r 
   JOIN Users u ON r.user_id = u.user_id 
   WHERE r.is_published = 1
@@ -105,9 +130,10 @@ app.get("/recipes", (req, res) => {
       return res.status(500).send("Failed to fetch recipes.");
     }
 
-    res.json(results); // send results to frontend
+    res.json(results);
   });
 });
+
 
 // ViewRecipe page
 app.get("/recipe/:id", (req, res) => {
