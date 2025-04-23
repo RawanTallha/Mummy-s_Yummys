@@ -40,7 +40,7 @@ body {
 .header-section {
   background: linear-gradient(to right, rgba(255, 255, 255, 100),
       rgba(245, 245, 245, 100));
-  background: url('/assets/pageBG.jpg');
+  background: url('../assets/pageBG.jpg');
   padding: 20px;
   border-radius: 10px;
   text-align: center;

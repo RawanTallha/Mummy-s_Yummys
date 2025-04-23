@@ -3,7 +3,6 @@ const express = require("express");
 const mysql = require("mysql2");
 
 const app = express();
-const port = 3000;
 
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
@@ -19,12 +18,13 @@ app.use("/uploads", express.static("website/uploads"));
 
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
-  connectionLimit: 10,
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "mummys_yummys", // Replace with your actual database name
-  port: 3307, // MAMP default port for MySQL
+    connectionLimit: 10,
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "mummys_yummys", // Replace with your actual database name
+    //hams's port : port: 3306,
+    port: 3307, // MAMP default port for MySQL
 });
 
 
