@@ -7,6 +7,7 @@
     <title>Nav</title>
     <link rel="stylesheet" href="CSS/navbar.css">
 </head>
+
 <body>
     <nav class="custom-navbar">
 
@@ -27,21 +28,40 @@
         <!-- Leftmost: Buttons -->
         <div class="nav-left">
             <div class="search-container">
-                <!-- <button class="custom-navbar-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button> -->
+
                 <a href="profile.html" class="custom-navbar-button">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
             <div class="login-container">
-            <a href="login.html" class="custom-navbar-button">
-                <!-- <i class="fa-solid fa-user"></i> -->
+                <a href="login.html" class="custom-navbar-button">
                 <i class="fa-solid fa-arrow-right-to-bracket"></i>
             </a>
-        </div>
+            </div>
         </div>
     </nav>
+    <script>
+        window.addEventListener("DOMContentLoaded", async () => {
+            const loginButton = document.querySelector(".login-container a");
+            const profileButton = document.querySelector(".search-container a");
+
+            try {
+                const res = await fetch("/api/session");
+                const data = await res.json();
+
+                if (data.loggedIn) {
+                    loginButton.href = "/profile.html";
+                    loginButton.innerHTML = `<i class="fa-solid fa-user"></i>`;
+                    profileButton.style.display = "none"; // optional: hide duplicate profile icon
+                } else {
+                    loginButton.href = "/login.html";
+                    loginButton.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket"></i>`;
+                }
+            } catch (err) {
+                console.error("Session check failed:", err);
+            }
+        });
+    </script>
 
 </body>
 
