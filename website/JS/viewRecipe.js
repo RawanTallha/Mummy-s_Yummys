@@ -44,14 +44,21 @@ if (recipeId) {
             const mainIngredients = data.ingredients.slice(0, 3);
             const moreIngredients = data.ingredients.slice(3);
 
+            console.log("🧪 Ingredients:", mainIngredients);
+
             const ingList = document.querySelector(".ingredients ol");
             ingList.innerHTML = mainIngredients.map(i => {
-                return `<li>${i.full_ingredient}</li>`;
+                const cleaned = i.quantity.includes(i.ingredient)
+                    ? i.quantity
+                    : `${i.quantity} ${i.ingredient}`;
+                return `<li>${cleaned}</li>`;
             }).join("");
 
             const extraList = document.querySelector("#moreIngredients .card-body ol");
             extraList.innerHTML = moreIngredients.map(i => {
-                return `<li>${i.full_ingredient}</li>`;
+                const alreadyIncludes = i.quantity.includes(i.ingredient);
+                const line = alreadyIncludes ? i.quantity : `${i.quantity} ${i.ingredient}`;
+                return `<li>${line}</li>`;
             }).join("");
 
             //  TOOLS
