@@ -1,14 +1,17 @@
 // Import required modules
 const express = require("express");
 const mysql = require("mysql2");
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+const session = require('express-session');
 
 const app = express();
-
-const session = require("express-session");
 
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 // Serve static files from the 'website' folder
 app.use("/", express.static("./website"));
@@ -21,8 +24,33 @@ app.use(session({
     secret: 'supersecretkey',
     resave: false,
     saveUninitialized: true,
+    cookie: { 
+      secure: false, // Set to true if using HTTPS
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
 }));
 
+<<<<<<< HEAD
+
+// Configure storage for uploaded files
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      const uploadDir = 'uploads/';
+      if (!fs.existsSync(uploadDir)) {
+          fs.mkdirSync(uploadDir);
+      }
+      cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+      cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
+
+
+=======
+>>>>>>> 6dad43ec3a89b8171aa43ab96571f78b6fa7b323
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
     connectionLimit: 10,
@@ -30,11 +58,23 @@ const pool = mysql.createPool({
     user: "root",
     password: "root",
     database: "mummys_yummys", // Replace with your actual database name
-    port: 3307, // MAMP default port for MySQL
+    //port: 3307, // MAMP default port for MySQL
+    port: 3306 // hams's port 
+});
+
+// Test connection
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error('❌ Database connection failed:', err);
+    return;
+  }
+  console.log('✅ Connected to MySQL database');
+  connection.release();
 });
 
 // Define port (add this line)
 const port = process.env.PORT || 3000; // Default to 3000 if no PORT is set
+
 
 // Signup page
 app.post("/signup", (req, res) => {
@@ -327,6 +367,178 @@ app.get("/recipe/:id", (req, res) => {
   });
 });
 
+<<<<<<< HEAD
+// AddRecipe Backend endpoint 
+app.post('/api/recipes', upload.single('image'), (req, res) => {
+  pool.getConnection((err, connection) => {
+    if (err) {
+      console.error('Database connection error:', err);
+      return res.status(500).json({ 
+        success: false, 
+        message: 'Database connection error' 
+      });
+    }
+
+    // Begin transaction
+    connection.beginTransaction(err => {
+      if (err) {
+        connection.release();
+        return res.status(500).json({ 
+          success: false, 
+          message: 'Transaction start failed' 
+        });
+      }
+
+      // 1. Insert recipe
+      const totalTime = (parseInt(req.body.hours) || 0) * 60 + 
+                       (parseInt(req.body.minutes) || 0);
+      
+      connection.query(
+        `INSERT INTO Recipes 
+         (user_id, name, description, type, level, time_to_make, image_url, is_published)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          req.session.user?.user_id || 1, // Default to 1 if no session
+          req.body.name,
+          req.body.description,
+          req.body.type || 'main',
+          req.body.difficulty || 'medium',
+          totalTime,
+          req.file ? `/uploads/${req.file.filename}` : null,
+          req.body.status === 'public' ? 1 : 0
+        ],
+        (err, recipeResult) => {
+          if (err) {
+            return rollbackAndRespond(connection, res, 
+              'Recipe insertion failed', err);
+          }
+
+          const recipeId = recipeResult.insertId;
+          const ingredients = req.body.ingredients ? 
+            Array.isArray(req.body.ingredients) ? 
+              req.body.ingredients : 
+              JSON.parse(req.body.ingredients) 
+            : [];
+          
+          // 2. Insert ingredients
+          if (ingredients.length > 0) {
+            insertIngredients(connection, res, recipeId, ingredients, req.body.steps);
+          } else {
+            // 3. Handle steps (if any)
+            const steps = req.body.steps ? 
+              Array.isArray(req.body.steps) ? 
+                req.body.steps : 
+                JSON.parse(req.body.steps) 
+              : [];
+            
+            if (steps.length > 0) {
+              insertSteps(connection, res, recipeId, steps);
+            } else {
+              commitTransaction(connection, res, recipeId);
+            }
+          }
+        }
+      );
+    });
+  });
+});
+
+// Helper function for inserting ingredients
+function insertIngredients(connection, res, recipeId, ingredients, steps) {
+  connection.query(
+    `INSERT INTO recipe_ingredients 
+     (recipe_id, ingredient_id, ingredient, quantity)
+     VALUES ?`,
+    [
+      ingredients.map((ing, idx) => [
+        recipeId,
+        idx + 1, // Generate sequential IDs
+        ing,
+        null // Default quantity
+      ])
+    ],
+    (err) => {
+      if (err) {
+        return rollbackAndRespond(connection, res, 
+          'Ingredients insertion failed', err);
+      }
+      
+      // Handle steps after ingredients
+      if (steps) {
+        const stepsArray = Array.isArray(steps) ? steps : JSON.parse(steps);
+        if (stepsArray.length > 0) {
+          insertSteps(connection, res, recipeId, stepsArray);
+        } else {
+          commitTransaction(connection, res, recipeId);
+        }
+      } else {
+        commitTransaction(connection, res, recipeId);
+      }
+    }
+  );
+}
+
+// Helper function for inserting steps
+function insertSteps(connection, res, recipeId, steps) {
+  connection.query(
+    `INSERT INTO steps
+     (recipe_id, step_number, instruction)
+     VALUES ?`,
+    [
+      steps.map((step, index) => [
+        recipeId, 
+        index + 1, 
+        typeof step === 'object' ? step.instruction : step
+      ])
+    ],
+    (err) => {
+      if (err) {
+        return rollbackAndRespond(connection, res, 
+          'Steps insertion failed', err);
+      }
+      commitTransaction(connection, res, recipeId);
+    }
+  );
+}
+
+// Helper function to commit transaction
+function commitTransaction(connection, res, recipeId) {
+  connection.commit(err => {
+    connection.release();
+    
+    if (err) {
+      console.error('Commit error:', err);
+      return res.status(500).json({ 
+        success: false, 
+        message: 'Transaction commit failed' 
+      });
+    }
+
+    res.json({ 
+      success: true,
+      message: 'Recipe saved successfully',
+      recipeId 
+    });
+  });
+}
+
+// Helper function for rollback and error response
+function rollbackAndRespond(connection, res, message, error) {
+  connection.rollback(() => {
+    connection.release();
+    console.error(`${message}:`, error);
+    res.status(500).json({ 
+      success: false, 
+      message: `${message}: ${error.sqlMessage || error.message}`,
+      errorDetails: process.env.NODE_ENV === 'development' ? error : undefined
+    });
+  });
+}
+
+
+
+
+=======
 
 app.post("/contact", (req, res) => {
   const { name, email, phone_number, message } = req.body;
@@ -348,6 +560,7 @@ app.post("/contact", (req, res) => {
   });
 });
 
+>>>>>>> 6dad43ec3a89b8171aa43ab96571f78b6fa7b323
 // Start the server
 app.listen(3000, () => {
     console.log(' Server is running on http://localhost:3000');
