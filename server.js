@@ -56,8 +56,8 @@ const pool = mysql.createPool({
   user: "root",
   password: "root",
   database: "mummys_yummys", // Replace with your actual database name
-  port: 3307, // MAMP default port for MySQL
-  // port: 3306 // hams's port 
+  //port: 3307, // MAMP default port for MySQL
+   port: 3306 // hams's port 
 });
 
 // Test connection
