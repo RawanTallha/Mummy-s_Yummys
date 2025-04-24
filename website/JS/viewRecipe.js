@@ -11,6 +11,11 @@ fetch('footer.html')
     .then(data => document.getElementById('footer').innerHTML = data);
 
 if (recipeId) {
+    // fetch(`/recipe/${recipeId}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log("✅ Recipe Data:", data); // for debugging
+
     fetch(`/recipe/${recipeId}`)
         .then(res => {
             if (!res.ok) {
@@ -48,22 +53,24 @@ if (recipeId) {
 
             const ingList = document.querySelector(".ingredients ol");
             ingList.innerHTML = mainIngredients.map(i => {
-                const cleaned = i.quantity.includes(i.ingredient)
-                    ? i.quantity
-                    : `${i.quantity} ${i.ingredient}`;
-                return `<li>${cleaned}</li>`;
+                return `<li>${i.full_ingredient}</li>`;
             }).join("");
 
             const extraList = document.querySelector("#moreIngredients .card-body ol");
             extraList.innerHTML = moreIngredients.map(i => {
-                const alreadyIncludes = i.quantity.includes(i.ingredient);
-                const line = alreadyIncludes ? i.quantity : `${i.quantity} ${i.ingredient}`;
-                return `<li>${line}</li>`;
+                return `<li>${i.full_ingredient}</li>`;
             }).join("");
+
+
+
+
+
 
             //  TOOLS
             const toolList = document.querySelector(".essentials ol");
             toolList.innerHTML = data.tools.map(tool => `<li>${tool}</li>`).join("");
+
+
 
             // STEPS
             const mainSteps = data.steps.slice(0, 3);
@@ -80,6 +87,9 @@ if (recipeId) {
             tagSection.innerHTML = `<h2>هـــاشــتـاقـات</h2>` +
                 data.tags.map(tag => `<span class="tag">#${tag}</span>`).join("");
         })
+        // .catch(err => {
+        //     console.error("Error loading recipe:", err);
+        // });
         .catch(err => {
             console.error("Error loading recipe:", err);
             alert("An error occurred while loading the recipe.");
@@ -88,8 +98,8 @@ if (recipeId) {
 
 document.querySelector('.like-button').addEventListener('click', () => {
     alert('تمت اضافتها للمفضلة');
-  });
+});
 
-  document.querySelector('.save-button').addEventListener('click', () => {
+document.querySelector('.save-button').addEventListener('click', () => {
     alert('تمت اضافتها للمحفوظات');
-  });
+});

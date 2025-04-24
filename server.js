@@ -2,6 +2,7 @@
 const express = require("express");
 const mysql = require("mysql2");
 const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 const path = require('path');
 const fs = require('fs');
 const session = require('express-session');
@@ -21,45 +22,24 @@ app.use("/uploads", express.static("website/uploads"));
 
 // Session middleware setup
 app.use(session({
-    secret: 'supersecretkey',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { 
-      secure: false, // Set to true if using HTTPS
-      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  secret: 'supersecretkey',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false, // Set to true if using HTTPS
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
 
-<<<<<<< HEAD
-
-// Configure storage for uploaded files
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-      const uploadDir = 'uploads/';
-      if (!fs.existsSync(uploadDir)) {
-          fs.mkdirSync(uploadDir);
-      }
-      cb(null, uploadDir);
-  },
-  filename: (req, file, cb) => {
-      cb(null, Date.now() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({ storage: storage });
-
-
-=======
->>>>>>> 6dad43ec3a89b8171aa43ab96571f78b6fa7b323
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
-    connectionLimit: 10,
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "mummys_yummys", // Replace with your actual database name
-    //port: 3307, // MAMP default port for MySQL
-    port: 3306 // hams's port 
+  connectionLimit: 10,
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "mummys_yummys", // Replace with your actual database name
+  port: 3307, // MAMP default port for MySQL
+  // port: 3306 // hams's port 
 });
 
 // Test connection
@@ -125,85 +105,85 @@ app.post("/login", (req, res) => {
 
     const user = results[0];
 
-        if (user.password_hash === password) {
-            // Save minimal user info in session
-            req.session.user = {
-                user_id: user.user_id,
-                fullName: `${user.first_name} ${user.last_name}`,
-                bio: user.bio || "أحب مشاركة الوصفات وتجربة الجديد دائمًا!" // Assuming `bio` exists in your users table
-            };
-            res.redirect("/profile.html");
-        }
-        
-    });
+    if (user.password_hash === password) {
+      // Save minimal user info in session
+      req.session.user = {
+        user_id: user.user_id,
+        fullName: `${user.first_name} ${user.last_name}`,
+        bio: user.bio || "أحب مشاركة الوصفات وتجربة الجديد دائمًا!" // Assuming `bio` exists in your users table
+      };
+      res.redirect("/profile.html");
+    }
+
+  });
 });
 
 app.get("/user/profile", (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).json({ message: "User not logged in" });
-    }
-    res.json(req.session.user);
+  if (!req.session.user) {
+    return res.status(401).json({ message: "User not logged in" });
+  }
+  res.json(req.session.user);
 });
 
 // to fetch and return the "my recipes section"
 app.get("/user/recipes", (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).json({ message: "User not logged in." });
-    }
+  if (!req.session.user) {
+    return res.status(401).json({ message: "User not logged in." });
+  }
 
-    const userId = req.session.user.user_id;
+  const userId = req.session.user.user_id;
 
-    const query = `
+  const query = `
         SELECT recipe_id, name AS title, description, image_url
         FROM Recipes
         WHERE user_id = ? AND is_published = 1
         ORDER BY created_at DESC
     `;
 
-    pool.query(query, [userId], (error, results) => {
-        if (error) {
-            console.error("DB ERROR:", error);
-            return res.status(500).send("Failed to fetch user recipes.");
-        }
+  pool.query(query, [userId], (error, results) => {
+    if (error) {
+      console.error("DB ERROR:", error);
+      return res.status(500).send("Failed to fetch user recipes.");
+    }
 
-        res.json(results);
-    });
+    res.json(results);
+  });
 });
 
 // to fetch and return the "draft tab section"
 app.get("/user/drafts", (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).json({ message: "User not logged in." });
-    }
+  if (!req.session.user) {
+    return res.status(401).json({ message: "User not logged in." });
+  }
 
-    const userId = req.session.user.user_id;
+  const userId = req.session.user.user_id;
 
-    const query = `
+  const query = `
         SELECT recipe_id, name AS title, description, image_url
         FROM Recipes
         WHERE user_id = ? AND is_published = 0
         ORDER BY created_at DESC
     `;
 
-    pool.query(query, [userId], (error, results) => {
-        if (error) {
-            console.error("DB ERROR:", error);
-            return res.status(500).send("Failed to fetch draft recipes.");
-        }
+  pool.query(query, [userId], (error, results) => {
+    if (error) {
+      console.error("DB ERROR:", error);
+      return res.status(500).send("Failed to fetch draft recipes.");
+    }
 
-        res.json(results);
-    });
+    res.json(results);
+  });
 });
 
 // liked recipes Route
 app.get('/user/favorites', (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).json({ message: 'User not logged in.' });
-    }
+  if (!req.session.user) {
+    return res.status(401).json({ message: 'User not logged in.' });
+  }
 
-    const userId = req.session.user.user_id;
+  const userId = req.session.user.user_id;
 
-    const query = `
+  const query = `
         SELECT r.recipe_id, r.name AS title, r.description, r.image_url
         FROM likes l
         JOIN Recipes r ON l.recipe_id = r.recipe_id
@@ -211,26 +191,26 @@ app.get('/user/favorites', (req, res) => {
         ORDER BY l.liked_at DESC
     `;
 
-    pool.query(query, [userId], (error, results) => {
-        if (error) {
-            console.error('DB ERROR (favorites):', error);
-            return res.status(500).send('Failed to fetch liked recipes.');
-        }
+  pool.query(query, [userId], (error, results) => {
+    if (error) {
+      console.error('DB ERROR (favorites):', error);
+      return res.status(500).send('Failed to fetch liked recipes.');
+    }
 
-        res.json(results);
-    });
+    res.json(results);
+  });
 });
 
 
 // saved recipes Route
 app.get('/user/history', (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).json({ message: 'User not logged in.' });
-    }
+  if (!req.session.user) {
+    return res.status(401).json({ message: 'User not logged in.' });
+  }
 
-    const userId = req.session.user.user_id;
+  const userId = req.session.user.user_id;
 
-    const query = `
+  const query = `
         SELECT r.recipe_id, r.name AS title, r.description, r.image_url
         FROM saves s
         JOIN Recipes r ON s.recipe_id = r.recipe_id
@@ -238,14 +218,14 @@ app.get('/user/history', (req, res) => {
         ORDER BY s.saved_at DESC
     `;
 
-    pool.query(query, [userId], (error, results) => {
-        if (error) {
-            console.error('DB ERROR (history):', error);
-            return res.status(500).send('Failed to fetch saved recipes.');
-        }
+  pool.query(query, [userId], (error, results) => {
+    if (error) {
+      console.error('DB ERROR (history):', error);
+      return res.status(500).send('Failed to fetch saved recipes.');
+    }
 
-        res.json(results);
-    });
+    res.json(results);
+  });
 });
 
 // Recipe card
@@ -262,7 +242,6 @@ app.get("/recipes", (req, res) => {
   JOIN Users u ON r.user_id = u.user_id 
   WHERE r.is_published = 1
   ORDER BY r.created_at DESC
-  LIMIT 10
 `;
 
   pool.query(query, (error, results) => {
@@ -309,10 +288,11 @@ app.get("/recipe/:id", (req, res) => {
 
     // Step 2: Fetch ingredients
     const ingredientQuery = `
-        SELECT ri.ingredient AS ingredient, ri.quantity
-        FROM Recipe_Ingredients ri
-        WHERE ri.recipe_id = ?
-    `;
+SELECT ri.full_ingredient
+FROM Recipe_Ingredients ri
+WHERE ri.recipe_id = ?
+`;
+
 
     pool.query(ingredientQuery, [recipeId], (err1, ingredients) => {
       if (err1) return res.status(500).send("Failed to fetch ingredients.");
@@ -367,15 +347,15 @@ app.get("/recipe/:id", (req, res) => {
   });
 });
 
-<<<<<<< HEAD
+
 // AddRecipe Backend endpoint 
 app.post('/api/recipes', upload.single('image'), (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) {
       console.error('Database connection error:', err);
-      return res.status(500).json({ 
-        success: false, 
-        message: 'Database connection error' 
+      return res.status(500).json({
+        success: false,
+        message: 'Database connection error'
       });
     }
 
@@ -383,16 +363,16 @@ app.post('/api/recipes', upload.single('image'), (req, res) => {
     connection.beginTransaction(err => {
       if (err) {
         connection.release();
-        return res.status(500).json({ 
-          success: false, 
-          message: 'Transaction start failed' 
+        return res.status(500).json({
+          success: false,
+          message: 'Transaction start failed'
         });
       }
 
       // 1. Insert recipe
-      const totalTime = (parseInt(req.body.hours) || 0) * 60 + 
-                       (parseInt(req.body.minutes) || 0);
-      
+      const totalTime = (parseInt(req.body.hours) || 0) * 60 +
+        (parseInt(req.body.minutes) || 0);
+
       connection.query(
         `INSERT INTO Recipes 
          (user_id, name, description, type, level, time_to_make, image_url, is_published)
@@ -409,28 +389,28 @@ app.post('/api/recipes', upload.single('image'), (req, res) => {
         ],
         (err, recipeResult) => {
           if (err) {
-            return rollbackAndRespond(connection, res, 
+            return rollbackAndRespond(connection, res,
               'Recipe insertion failed', err);
           }
 
           const recipeId = recipeResult.insertId;
-          const ingredients = req.body.ingredients ? 
-            Array.isArray(req.body.ingredients) ? 
-              req.body.ingredients : 
-              JSON.parse(req.body.ingredients) 
+          const ingredients = req.body.ingredients ?
+            Array.isArray(req.body.ingredients) ?
+              req.body.ingredients :
+              JSON.parse(req.body.ingredients)
             : [];
-          
+
           // 2. Insert ingredients
           if (ingredients.length > 0) {
             insertIngredients(connection, res, recipeId, ingredients, req.body.steps);
           } else {
             // 3. Handle steps (if any)
-            const steps = req.body.steps ? 
-              Array.isArray(req.body.steps) ? 
-                req.body.steps : 
-                JSON.parse(req.body.steps) 
+            const steps = req.body.steps ?
+              Array.isArray(req.body.steps) ?
+                req.body.steps :
+                JSON.parse(req.body.steps)
               : [];
-            
+
             if (steps.length > 0) {
               insertSteps(connection, res, recipeId, steps);
             } else {
@@ -447,22 +427,21 @@ app.post('/api/recipes', upload.single('image'), (req, res) => {
 function insertIngredients(connection, res, recipeId, ingredients, steps) {
   connection.query(
     `INSERT INTO recipe_ingredients 
-     (recipe_id, ingredient_id, ingredient, quantity)
+     (recipe_id, ingredient_id, full_ingredient)
      VALUES ?`,
     [
       ingredients.map((ing, idx) => [
         recipeId,
         idx + 1, // Generate sequential IDs
         ing,
-        null // Default quantity
       ])
     ],
     (err) => {
       if (err) {
-        return rollbackAndRespond(connection, res, 
+        return rollbackAndRespond(connection, res,
           'Ingredients insertion failed', err);
       }
-      
+
       // Handle steps after ingredients
       if (steps) {
         const stepsArray = Array.isArray(steps) ? steps : JSON.parse(steps);
@@ -486,14 +465,14 @@ function insertSteps(connection, res, recipeId, steps) {
      VALUES ?`,
     [
       steps.map((step, index) => [
-        recipeId, 
-        index + 1, 
+        recipeId,
+        index + 1,
         typeof step === 'object' ? step.instruction : step
       ])
     ],
     (err) => {
       if (err) {
-        return rollbackAndRespond(connection, res, 
+        return rollbackAndRespond(connection, res,
           'Steps insertion failed', err);
       }
       commitTransaction(connection, res, recipeId);
@@ -505,19 +484,19 @@ function insertSteps(connection, res, recipeId, steps) {
 function commitTransaction(connection, res, recipeId) {
   connection.commit(err => {
     connection.release();
-    
+
     if (err) {
       console.error('Commit error:', err);
-      return res.status(500).json({ 
-        success: false, 
-        message: 'Transaction commit failed' 
+      return res.status(500).json({
+        success: false,
+        message: 'Transaction commit failed'
       });
     }
 
-    res.json({ 
+    res.json({
       success: true,
       message: 'Recipe saved successfully',
-      recipeId 
+      recipeId
     });
   });
 }
@@ -527,8 +506,8 @@ function rollbackAndRespond(connection, res, message, error) {
   connection.rollback(() => {
     connection.release();
     console.error(`${message}:`, error);
-    res.status(500).json({ 
-      success: false, 
+    res.status(500).json({
+      success: false,
       message: `${message}: ${error.sqlMessage || error.message}`,
       errorDetails: process.env.NODE_ENV === 'development' ? error : undefined
     });
@@ -538,7 +517,6 @@ function rollbackAndRespond(connection, res, message, error) {
 
 
 
-=======
 
 app.post("/contact", (req, res) => {
   const { name, email, phone_number, message } = req.body;
@@ -560,8 +538,7 @@ app.post("/contact", (req, res) => {
   });
 });
 
->>>>>>> 6dad43ec3a89b8171aa43ab96571f78b6fa7b323
 // Start the server
 app.listen(3000, () => {
-    console.log(' Server is running on http://localhost:3000');
+  console.log(' Server is running on http://localhost:3000');
 });
