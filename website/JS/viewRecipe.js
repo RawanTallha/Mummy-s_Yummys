@@ -46,17 +46,12 @@ if (recipeId) {
 
             const ingList = document.querySelector(".ingredients ol");
             ingList.innerHTML = mainIngredients.map(i => {
-                const cleaned = i.quantity.includes(i.ingredient)
-                    ? i.quantity
-                    : `${i.quantity} ${i.ingredient}`;
-                return `<li>${cleaned}</li>`;
+                return `<li>${i.full_ingredient}</li>`;
             }).join("");
 
             const extraList = document.querySelector("#moreIngredients .card-body ol");
             extraList.innerHTML = moreIngredients.map(i => {
-                const alreadyIncludes = i.quantity.includes(i.ingredient);
-                const line = alreadyIncludes ? i.quantity : `${i.quantity} ${i.ingredient}`;
-                return `<li>${line}</li>`;
+                return `<li>${i.full_ingredient}</li>`;
             }).join("");
 
             //  TOOLS
@@ -86,8 +81,8 @@ if (recipeId) {
 
 document.querySelector('.like-button').addEventListener('click', () => {
     alert('تمت اضافتها للمفضلة');
-  });
+});
 
-  document.querySelector('.save-button').addEventListener('click', () => {
+document.querySelector('.save-button').addEventListener('click', () => {
     alert('تمت اضافتها للمحفوظات');
-  });
+});
