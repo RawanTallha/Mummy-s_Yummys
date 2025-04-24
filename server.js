@@ -30,7 +30,6 @@ app.use(session({
   }
 }));
 
-<<<<<<< HEAD
 
 // Configure storage for uploaded files
 const storage = multer.diskStorage({
@@ -49,8 +48,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-=======
->>>>>>> 6dad43ec3a89b8171aa43ab96571f78b6fa7b323
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
     connectionLimit: 10,
@@ -367,7 +364,6 @@ app.get("/recipe/:id", (req, res) => {
   });
 });
 
-<<<<<<< HEAD
 // AddRecipe Backend endpoint 
 app.post('/api/recipes', upload.single('image'), (req, res) => {
   pool.getConnection((err, connection) => {
@@ -538,7 +534,6 @@ function rollbackAndRespond(connection, res, message, error) {
 
 
 
-=======
 
 app.post("/contact", (req, res) => {
   const { name, email, phone_number, message } = req.body;
@@ -560,7 +555,6 @@ app.post("/contact", (req, res) => {
   });
 });
 
->>>>>>> 6dad43ec3a89b8171aa43ab96571f78b6fa7b323
 // Start the server
 app.listen(3000, () => {
     console.log(' Server is running on http://localhost:3000');
