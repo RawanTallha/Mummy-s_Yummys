@@ -43,11 +43,7 @@
         border-radius: 30px;
         padding: 10px;
     }
-
-    .contact-icons a:hover {
-        color: rgb(178, 96, 38);
-    }
-
+    
     .contact-info-details {
         display: flex;
         align-items: center;

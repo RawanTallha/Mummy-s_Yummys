@@ -11,11 +11,6 @@ fetch('footer.html')
     .then(data => document.getElementById('footer').innerHTML = data);
 
 if (recipeId) {
-    // fetch(`/recipe/${recipeId}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log("✅ Recipe Data:", data); // for debugging
-
     fetch(`/recipe/${recipeId}`)
         .then(res => {
             if (!res.ok) {
@@ -66,16 +61,9 @@ if (recipeId) {
                 return `<li>${line}</li>`;
             }).join("");
 
-
-
-
-
-
             //  TOOLS
             const toolList = document.querySelector(".essentials ol");
             toolList.innerHTML = data.tools.map(tool => `<li>${tool}</li>`).join("");
-
-
 
             // STEPS
             const mainSteps = data.steps.slice(0, 3);
@@ -92,13 +80,16 @@ if (recipeId) {
             tagSection.innerHTML = `<h2>هـــاشــتـاقـات</h2>` +
                 data.tags.map(tag => `<span class="tag">#${tag}</span>`).join("");
         })
-        // .catch(err => {
-        //     console.error("Error loading recipe:", err);
-        // });
         .catch(err => {
             console.error("Error loading recipe:", err);
             alert("An error occurred while loading the recipe.");
         });
-
-
 }
+
+document.querySelector('.like-button').addEventListener('click', () => {
+    alert('تمت اضافتها للمفضلة');
+  });
+
+  document.querySelector('.save-button').addEventListener('click', () => {
+    alert('تمت اضافتها للمحفوظات');
+  });
