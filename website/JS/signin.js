@@ -67,7 +67,27 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
 
         if (response.ok) {
             // Redirect to profile page if signup is successful
-            window.location.href = '/profile.html';
+            // window.location.href = '/profile.html';
+            try {
+                const response = await fetch("/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+        
+                if (response.redirected) {
+                    window.location.href = response.url; // successful login
+                } else {
+                    const text = await response.text();
+                    alert(text); // shows "Invalid password"
+                }
+        
+            } catch (err) {
+                console.error("Login error:", err);
+                alert("Something went wrong.");
+            }
         } else {
             // If response is not OK, show the error message from backend
             const responseData = await response.json();

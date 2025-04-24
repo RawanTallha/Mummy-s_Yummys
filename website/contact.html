@@ -33,7 +33,7 @@
   <section class="contact-form-section">
     <div class="container">
       <h2>تواصل معنا</h2>
-      <form action="#" method="post">
+      <form name="contactUsForm" id="contactUsForm" action="/contact" method="post">
         <div class="form-group">
           <label for="name">الاسم الكامل:</label>
           <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
@@ -85,21 +85,9 @@
     </div>
   </section>
 
-
-
-
   <!-- ====== Footer ====== -->
   <div id="footer"></div>
-
-  <script>
-      fetch('navbar.html')
-        .then(res => res.text())
-        .then(data => document.getElementById('navbar').innerHTML = data);
-  
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+<script src="JS/contact.js"></script>
 </body>
 
 </html>

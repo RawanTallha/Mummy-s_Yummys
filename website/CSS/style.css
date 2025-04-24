@@ -146,7 +146,7 @@ body {
     margin: 0;
     padding: 0;
     direction: rtl;
-    background-color: #458693;
+    /* background-color: #458693; */
 }
 
 .cards_item {

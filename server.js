@@ -23,9 +23,6 @@ app.use(session({
     saveUninitialized: true,
 }));
 
-
-
-
 // MySQL connection setup using MAMP settings
 const pool = mysql.createPool({
     connectionLimit: 10,
@@ -211,31 +208,6 @@ app.get('/user/history', (req, res) => {
     });
 });
 
-
-// Recipe card
-// app.get("/recipes", (req, res) => {
-//   const query = `
-//   SELECT r.recipe_id,
-//          r.name AS recipe_title, 
-//          r.description, 
-//          r.image_url,
-//          u.username 
-//   FROM Recipes r 
-//   JOIN Users u ON r.user_id = u.user_id 
-//   WHERE r.is_published = 1
-//   ORDER BY r.created_at DESC
-//   LIMIT 10
-// `;
-
-//   pool.query(query, (error, results) => {
-//     if (error) {
-//       console.error("DB ERROR:", error);
-//       return res.status(500).send("Failed to fetch recipes.");
-//     }
-
-//     res.json(results); // send results to frontend
-//   });
-// });
 // Recipe card
 app.get("/recipes", (req, res) => {
   const query = `
@@ -243,6 +215,7 @@ app.get("/recipes", (req, res) => {
          r.name AS recipe_title, 
          r.description, 
          r.image_url,
+         u.username,
          u.first_name,
          u.last_name
   FROM Recipes r 
@@ -261,7 +234,6 @@ app.get("/recipes", (req, res) => {
     res.json(results);
   });
 });
-
 
 // ViewRecipe page
 app.get("/recipe/:id", (req, res) => {
@@ -352,6 +324,27 @@ app.get("/recipe/:id", (req, res) => {
         });
       });
     });
+  });
+});
+
+
+app.post("/contact", (req, res) => {
+  const { name, email, phone_number, message } = req.body;
+
+  // Construct the SQL insert query
+  const query = `
+    INSERT INTO contact_us (name, email, phone_number, message)
+    VALUES (?, ?, ?, ?)
+  `;
+  const data = [name, email, phone_number || null, message];
+
+  pool.query(query, data, (error, result) => {
+    if (error) {
+      console.error("CONTACT FORM ERROR:", error);
+      return res.status(500).send("Failed to submit your message.");
+    }
+
+    res.redirect("/index.html"); // or send a success message instead
   });
 });
 
