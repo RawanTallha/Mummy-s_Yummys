@@ -88,8 +88,8 @@ if (recipeId) {
 
 document.querySelector('.like-button').addEventListener('click', () => {
     alert('تمت اضافتها للمفضلة');
-});
+  });
 
-document.querySelector('.save-button').addEventListener('click', () => {
+  document.querySelector('.save-button').addEventListener('click', () => {
     alert('تمت اضافتها للمحفوظات');
-});
+  });
